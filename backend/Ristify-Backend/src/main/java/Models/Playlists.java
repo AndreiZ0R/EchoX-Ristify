@@ -8,9 +8,12 @@ import java.util.Objects;
 @Table(name = "playlists")
 public class Playlists {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Id
+    @Column(name = "userid")
+    @OneToOne(targetEntity = Users.class)
     private Long userId;
     @Column(nullable = false, unique = true)
     private String name;
@@ -19,13 +22,11 @@ public class Playlists {
 
     }
 
-    public Playlists(Long id, Long userId, String name) {
+    public Playlists(final Long id, final Long userId, final String name) {
         this.id = id;
         this.userId = userId;
         this.name = name;
     }
-
-    //Getters
 
     public Long getId() {
         return id;
@@ -39,21 +40,17 @@ public class Playlists {
         return name;
     }
 
-    //Setters
-
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(final Long userId) {
         this.userId = userId;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
-
-    //equals
 
     @Override
     public boolean equals(Object o) {
@@ -62,8 +59,6 @@ public class Playlists {
         Playlists playlists = (Playlists) o;
         return Objects.equals(id, playlists.id) && Objects.equals(userId, playlists.userId) && Objects.equals(name, playlists.name);
     }
-
-    //hashCode
 
     @Override
     public int hashCode() {

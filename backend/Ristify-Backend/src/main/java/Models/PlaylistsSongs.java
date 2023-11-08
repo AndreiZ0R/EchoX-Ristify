@@ -7,21 +7,21 @@ import java.util.Objects;
 
 @Table(name = "playlistssongs")
 public class PlaylistsSongs {
-    @Column(nullable = false)
+    @Column(nullable = false, name = "playlistid")
+    @OneToOne(targetEntity = Playlists.class)
     private Long playlistId;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, name = "songid")
+    @OneToOne(targetEntity = Songs.class)
     private Long songId;
 
     public PlaylistsSongs(){
 
     }
 
-    public PlaylistsSongs(Long playlistId, Long songId) {
+    public PlaylistsSongs(final Long playlistId, final Long songId) {
         this.playlistId = playlistId;
         this.songId = songId;
     }
-
-    //Getters
 
     public Long getPlaylistId() {
         return playlistId;
@@ -31,17 +31,13 @@ public class PlaylistsSongs {
         return songId;
     }
 
-    //Setters
-
-    public void setPlaylistId(Long playlistId) {
+    public void setPlaylistId(final Long playlistId) {
         this.playlistId = playlistId;
     }
 
-    public void setSongId(Long songId) {
+    public void setSongId(final Long songId) {
         this.songId = songId;
     }
-
-    //equals
 
     @Override
     public boolean equals(Object o) {
@@ -50,8 +46,6 @@ public class PlaylistsSongs {
         PlaylistsSongs that = (PlaylistsSongs) o;
         return Objects.equals(playlistId, that.playlistId) && Objects.equals(songId, that.songId);
     }
-
-    //hashCode
 
     @Override
     public int hashCode() {

@@ -9,36 +9,34 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 public class Users {
-
-    //TODO: change generation type to identity + oneToMany and manyToOne
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ManyToOne(targetEntity = Playlists.class)
     private Long id;
-    @Column(unique = true)
+    @Column(unique = true, name = "username")
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "firstname")
     private String firstName;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "lastname")
     private String lastName;
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String country;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "createdat")
     private Timestamp createdAt;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "lastlogin")
     private Timestamp lastLogin;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "birthdate")
     private Date birthDate;
 
     public Users(){
 
     }
 
-    public Users(final Long id, String username, String password, String firstName, String lastName, String email, String country, Timestamp createdAt, Timestamp lastLogin, Date birthDate) {
+    public Users(final Long id,final String username,final String password,final String firstName,final String lastName,final String email,final String country,final Timestamp createdAt,final Timestamp lastLogin,final Date birthDate) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -91,44 +89,43 @@ public class Users {
         return birthDate;
     }
 
-    //TODO: final or constructor & setters args
     public void setId(final Long id) {
         this.id = id;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(final String username) {
         this.username = username;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(final String country) {
         this.country = country;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(final Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
-    public void setLastLogin(Timestamp lastLogin) {
+    public void setLastLogin(final Timestamp lastLogin) {
         this.lastLogin = lastLogin;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(final Date birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -144,5 +141,4 @@ public class Users {
     public int hashCode() {
         return Objects.hash(id, username, password, firstName, lastName, email, country, createdAt, lastLogin, birthDate);
     }
-
 }

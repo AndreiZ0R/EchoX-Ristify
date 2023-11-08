@@ -10,11 +10,11 @@ public class Songs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "songname")
     private String songName;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "artistname")
     private String artistName;
-    @Column
+    @Column(name = "albumname")
     private String albumName;
     @Column(nullable = false)
     private String url;
@@ -23,16 +23,13 @@ public class Songs {
 
     }
 
-    public Songs(Long id, String songName, String artistName, String albumName, String url) {
+    public Songs(final Long id, final String songName, final String artistName, final String albumName, final String url) {
         this.id = id;
         this.songName = songName;
         this.artistName = artistName;
         this.albumName = albumName;
         this.url = url;
     }
-
-    //Getters
-
     public Long getId() {
         return id;
     }
@@ -53,29 +50,25 @@ public class Songs {
         return url;
     }
 
-    //Setters
-
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
-    public void setSongName(String songName) {
+    public void setSongName(final String songName) {
         this.songName = songName;
     }
 
-    public void setArtistName(String artistName) {
+    public void setArtistName(final String artistName) {
         this.artistName = artistName;
     }
 
-    public void setAlbumName(String albumName) {
+    public void setAlbumName(final String albumName) {
         this.albumName = albumName;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(final String url) {
         this.url = url;
     }
-
-    //equals
 
     @Override
     public boolean equals(Object o) {
@@ -84,8 +77,6 @@ public class Songs {
         Songs songs = (Songs) o;
         return Objects.equals(id, songs.id) && Objects.equals(songName, songs.songName) && Objects.equals(artistName, songs.artistName) && Objects.equals(albumName, songs.albumName) && Objects.equals(url, songs.url);
     }
-
-    //hashCode
 
     @Override
     public int hashCode() {
