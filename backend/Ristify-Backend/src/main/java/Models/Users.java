@@ -1,6 +1,14 @@
 package Models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -8,6 +16,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
+@Getter
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,26 +27,32 @@ public class Users {
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false, name = "firstname")
+    @Column(nullable = false, name = "firstName")
     private String firstName;
-    @Column(nullable = false, name = "lastname")
+    @Column(nullable = false, name = "lastName")
     private String lastName;
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String country;
-    @Column(nullable = false, name = "createdat")
+    @Column(nullable = false, name = "createdAt")
     private Timestamp createdAt;
-    @Column(nullable = false, name = "lastlogin")
+    @Column(nullable = false, name = "lastLogin")
     private Timestamp lastLogin;
-    @Column(nullable = false, name = "birthdate")
+    @Column(nullable = false, name = "birthDate")
     private Date birthDate;
 
-    public Users(){
-
-    }
-
-    public Users(final Long id,final String username,final String password,final String firstName,final String lastName,final String email,final String country,final Timestamp createdAt,final Timestamp lastLogin,final Date birthDate) {
+    public Users(
+            final Long id,
+            final String username,
+            final String password,
+            final String firstName,
+            final String lastName,
+            final String email,
+            final String country,
+            final Timestamp createdAt,
+            final Timestamp lastLogin,
+            final Date birthDate) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -47,46 +63,6 @@ public class Users {
         this.createdAt = createdAt;
         this.lastLogin = lastLogin;
         this.birthDate = birthDate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public Timestamp getLastLogin() {
-        return lastLogin;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
     }
 
     public void setId(final Long id) {
@@ -130,15 +106,50 @@ public class Users {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return Objects.equals(id, users.id) && Objects.equals(username, users.username) && Objects.equals(password, users.password) && Objects.equals(firstName, users.firstName) && Objects.equals(lastName, users.lastName) && Objects.equals(email, users.email) && Objects.equals(country, users.country) && Objects.equals(createdAt, users.createdAt) && Objects.equals(lastLogin, users.lastLogin) && Objects.equals(birthDate, users.birthDate);
+        return Objects.equals(id, users.id) &&
+                Objects.equals(username, users.username) &&
+                Objects.equals(password, users.password) &&
+                Objects.equals(firstName, users.firstName) &&
+                Objects.equals(lastName, users.lastName) &&
+                Objects.equals(email, users.email) &&
+                Objects.equals(country, users.country) &&
+                Objects.equals(createdAt, users.createdAt) &&
+                Objects.equals(lastLogin, users.lastLogin) &&
+                Objects.equals(birthDate, users.birthDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, firstName, lastName, email, country, createdAt, lastLogin, birthDate);
+        return Objects.hash(
+                id,
+                username,
+                password,
+                firstName,
+                lastName,
+                email,
+                country,
+                createdAt,
+                lastLogin,
+                birthDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", country='" + country + '\'' +
+                ", createdAt=" + createdAt +
+                ", lastLogin=" + lastLogin +
+                ", birthDate=" + birthDate +
+                '}';
     }
 }
