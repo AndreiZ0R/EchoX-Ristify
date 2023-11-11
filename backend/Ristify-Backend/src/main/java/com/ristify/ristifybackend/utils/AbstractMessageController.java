@@ -1,7 +1,6 @@
-package com.ristify.ristifybackend.controller;
+package com.ristify.ristifybackend.utils;
 
 import com.ristify.ristifybackend.response.Response;
-import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 

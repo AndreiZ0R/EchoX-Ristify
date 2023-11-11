@@ -1,8 +1,9 @@
 package com.ristify.ristifybackend.response;
 
-
 import com.ristify.ristifybackend.utils.AppUtils;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +11,10 @@ import org.springframework.http.ResponseEntity;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @Getter
+@EqualsAndHashCode(callSuper = false)
+@ToString
 public class Response extends ResponseEntity<Object> implements Serializable {
     private final Map<String, Object> body;
     private final String message;
@@ -26,31 +28,6 @@ public class Response extends ResponseEntity<Object> implements Serializable {
         this.status = builder.status;
         this.headers = builder.headers;
         this.body = builder.body;
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Response response = (Response) o;
-        return Objects.equals(message, response.message) && status == response.status && Objects.equals(body, response.body);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(message, status, body);
-    }
-
-    @Override
-    public String toString() {
-        return "Response{" + "message='" + message + '\'' +
-               ", status=" + status +
-               ", body=" + body +
-               '}';
     }
 
     public static class Builder {
