@@ -13,5 +13,4 @@ class RistifyBackendApplicationTests {
     void contextLoads() {
         assertThat(true, equalTo(true));
     }
-
 }

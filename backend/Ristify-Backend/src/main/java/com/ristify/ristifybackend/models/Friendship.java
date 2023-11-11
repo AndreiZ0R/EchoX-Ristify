@@ -1,10 +1,7 @@
-package Models;
+package com.ristify.ristifybackend.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.ristify.ristifybackend.models.composite.keys.FriendshipKey;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,31 +10,34 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "friendships")
+@IdClass(FriendshipKey.class)
 @NoArgsConstructor
 @Getter
-public class Friendships {
+public class Friendship {
     @Id
-    @Column(name = "userId1")
-    @ManyToOne(targetEntity = Users.class)
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "userId1")
     private Long userId1;
+
     @Id
-    @Column(name = "userId2")
-    @ManyToOne(targetEntity = Users.class)
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "userId2")
     private Long userId2;
+
     @Column(nullable = false, name = "createdAt")
     private Timestamp createdAt;
 
-    public Friendships(final Long userid1, final Long userId2, final Timestamp createdAt) {
+    public Friendship(final Long userId1, final Long userId2, final Timestamp createdAt) {
         this.userId1 = userId1;
         this.userId2 = userId2;
         this.createdAt = createdAt;
     }
 
-    public void setUser1(final Long user1) {
+    public void setUserId1(final Long userId1) {
         this.userId1 = userId1;
     }
 
-    public void setUser2(final Long user2) {
+    public void setUserId2(final Long userId2) {
         this.userId2 = userId2;
     }
 
@@ -49,7 +49,7 @@ public class Friendships {
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Friendships that = (Friendships) o;
+        Friendship that = (Friendship) o;
         return Objects.equals(userId1, that.userId1) &&
                 Objects.equals(userId2, that.userId2) &&
                 Objects.equals(createdAt, that.createdAt);
@@ -62,6 +62,6 @@ public class Friendships {
 
     @Override
     public String toString() {
-        return "Friendships{" + "userId1=" + userId1 + ", userId2=" + userId2 + ", createdAt=" + createdAt + '}';
+        return "Friendship{" + "userId1=" + userId1 + ", userId2=" + userId2 + ", createdAt=" + createdAt + '}';
     }
 }

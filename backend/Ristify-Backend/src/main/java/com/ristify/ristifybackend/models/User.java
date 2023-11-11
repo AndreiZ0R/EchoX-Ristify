@@ -1,49 +1,60 @@
-package Models;
+package com.ristify.ristifybackend.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
 @Getter
-public class Users {
+public class User {
     @Id
+    @JoinColumn(name = "userId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToOne(targetEntity = Playlists.class)
-    private Long id;
+    @ManyToOne(targetEntity = Playlist.class)
+    private Long userId;
+
     @Column(unique = true, name = "username")
     private String username;
-    @Column(nullable = false)
+
+    @Column(nullable = false, name = "password")
     private String password;
+
     @Column(nullable = false, name = "firstName")
     private String firstName;
+
     @Column(nullable = false, name = "lastName")
     private String lastName;
-    @Column(nullable = false, unique = true)
+
+    @Column(nullable = false, unique = true, name = "email")
     private String email;
-    @Column(nullable = false)
+
+    @Column(nullable = false, name = "country")
     private String country;
+
     @Column(nullable = false, name = "createdAt")
     private Timestamp createdAt;
+
     @Column(nullable = false, name = "lastLogin")
     private Timestamp lastLogin;
+
     @Column(nullable = false, name = "birthDate")
     private Date birthDate;
 
-    public Users(
-            final Long id,
+    public User(
+            final Long userId,
             final String username,
             final String password,
             final String firstName,
@@ -53,7 +64,7 @@ public class Users {
             final Timestamp createdAt,
             final Timestamp lastLogin,
             final Date birthDate) {
-        this.id = id;
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -65,8 +76,8 @@ public class Users {
         this.birthDate = birthDate;
     }
 
-    public void setId(final Long id) {
-        this.id = id;
+    public void setUserId(final Long userId) {
+        this.userId = userId;
     }
 
     public void setUsername(final String username) {
@@ -109,38 +120,28 @@ public class Users {
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Users users = (Users) o;
-        return Objects.equals(id, users.id) &&
-                Objects.equals(username, users.username) &&
-                Objects.equals(password, users.password) &&
-                Objects.equals(firstName, users.firstName) &&
-                Objects.equals(lastName, users.lastName) &&
-                Objects.equals(email, users.email) &&
-                Objects.equals(country, users.country) &&
-                Objects.equals(createdAt, users.createdAt) &&
-                Objects.equals(lastLogin, users.lastLogin) &&
-                Objects.equals(birthDate, users.birthDate);
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(country, user.country) &&
+                Objects.equals(createdAt, user.createdAt) &&
+                Objects.equals(lastLogin, user.lastLogin) &&
+                Objects.equals(birthDate, user.birthDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                id,
-                username,
-                password,
-                firstName,
-                lastName,
-                email,
-                country,
-                createdAt,
-                lastLogin,
-                birthDate);
+        return Objects.hash(userId, username, password, firstName, lastName, email, country, createdAt, lastLogin, birthDate);
     }
 
     @Override
     public String toString() {
-        return "Users{" +
-                "id=" + id +
+        return "User{" +
+                "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
