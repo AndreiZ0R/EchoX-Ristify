@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class FriendshipKey implements Serializable {
-    private Integer userId1;
-    private Integer userId2;
+public class PlaylistSongKey implements Serializable {
+    private Integer playlist;
+    private Integer song;
 }

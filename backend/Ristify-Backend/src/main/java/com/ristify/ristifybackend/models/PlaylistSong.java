@@ -1,57 +1,34 @@
 package com.ristify.ristifybackend.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToOne;
+import com.ristify.ristifybackend.models.composite.keys.PlaylistSongKey;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import java.util.Objects;
-
-
+@Entity
 @Table(name = "playlistsongs")
-@NoArgsConstructor
+@IdClass(PlaylistSongKey.class)
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class PlaylistSong {
-    @Column(nullable = false, name = "playlist")
-    @OneToOne(targetEntity = Playlist.class)
-    private Long playlist;
+    @Id
+    @JoinColumn(name = "playlist", unique = true, nullable = false, referencedColumnName = "playlistId")
+    @ManyToOne(targetEntity = Playlist.class)
+    private Integer playlist;
 
-    @Column(nullable = false, unique = true, name = "song")
-    @OneToOne(targetEntity = Song.class)
-    private Long song;
-
-    public PlaylistSong(final Long playlist, final Long song) {
-        this.playlist = playlist;
-        this.song = song;
-    }
-
-    public void setPlaylist(final Long playlist) {
-        this.playlist = playlist;
-    }
-
-    public void setSong(final Long song) {
-        this.song = song;
-    }
-
-    @Override
-    public final boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PlaylistSong that = (PlaylistSong) o;
-        return Objects.equals(playlist, that.playlist) && Objects.equals(song, that.song);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(playlist, song);
-    }
-
-    @Override
-    public String toString() {
-        return "PlaylistSong{" +
-                "playlist=" + playlist +
-                ", song=" + song +
-                '}';
-    }
+    @Id
+    @JoinColumn(name = "song", unique = true, nullable = false, referencedColumnName = "songId")
+    @ManyToOne(targetEntity = Song.class)
+    private Integer song;
 }

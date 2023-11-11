@@ -2,155 +2,59 @@ package com.ristify.ristifybackend.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
-@NoArgsConstructor
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class User {
     @Id
-    @JoinColumn(name = "userId")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToOne(targetEntity = Playlist.class)
-    private Long userId;
+    @Column(name = "userId", unique = true, nullable = false)
+    private Integer userId;
 
-    @Column(unique = true, name = "username")
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false, name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(nullable = false, name = "firstName")
+    @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @Column(nullable = false, name = "lastName")
+    @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @Column(nullable = false, unique = true, name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false, name = "country")
+    @Column(name = "country", nullable = false)
     private String country;
 
-    @Column(nullable = false, name = "createdAt")
+    @Column(name = "createdAt", nullable = false)
     private Timestamp createdAt;
 
-    @Column(nullable = false, name = "lastLogin")
+    @Column(name = "lastLogin", nullable = false)
     private Timestamp lastLogin;
 
-    @Column(nullable = false, name = "birthDate")
+    @Column(name = "birthDate", nullable = false)
     private Date birthDate;
 
-    public User(
-            final Long userId,
-            final String username,
-            final String password,
-            final String firstName,
-            final String lastName,
-            final String email,
-            final String country,
-            final Timestamp createdAt,
-            final Timestamp lastLogin,
-            final Date birthDate) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.country = country;
-        this.createdAt = createdAt;
-        this.lastLogin = lastLogin;
-        this.birthDate = birthDate;
-    }
-
-    public void setUserId(final Long userId) {
-        this.userId = userId;
-    }
-
-    public void setUsername(final String username) {
-        this.username = username;
-    }
-
-    public void setPassword(final String password) {
-        this.password = password;
-    }
-
-    public void setFirstName(final String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(final String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(final String email) {
-        this.email = email;
-    }
-
-    public void setCountry(final String country) {
-        this.country = country;
-    }
-
-    public void setCreatedAt(final Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setLastLogin(final Timestamp lastLogin) {
-        this.lastLogin = lastLogin;
-    }
-
-    public void setBirthDate(final Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    @Override
-    public final boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(userId, user.userId) &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(password, user.password) &&
-                Objects.equals(firstName, user.firstName) &&
-                Objects.equals(lastName, user.lastName) &&
-                Objects.equals(email, user.email) &&
-                Objects.equals(country, user.country) &&
-                Objects.equals(createdAt, user.createdAt) &&
-                Objects.equals(lastLogin, user.lastLogin) &&
-                Objects.equals(birthDate, user.birthDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, username, password, firstName, lastName, email, country, createdAt, lastLogin, birthDate);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", country='" + country + '\'' +
-                ", createdAt=" + createdAt +
-                ", lastLogin=" + lastLogin +
-                ", birthDate=" + birthDate +
-                '}';
-    }
+    @OneToMany(mappedBy = "user")
+    private Set<Playlist> playlists = new HashSet<>();
 }
