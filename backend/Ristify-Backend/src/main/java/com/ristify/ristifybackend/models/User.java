@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -24,6 +26,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

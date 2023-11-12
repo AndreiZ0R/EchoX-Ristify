@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "songs")
@@ -21,6 +23,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

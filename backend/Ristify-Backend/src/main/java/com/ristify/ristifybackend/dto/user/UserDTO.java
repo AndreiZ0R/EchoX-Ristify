@@ -1,4 +1,4 @@
-package com.ristify.ristifybackend.dto;
+package com.ristify.ristifybackend.dto.user;
 
 import java.io.Serializable;
 import java.sql.Date;

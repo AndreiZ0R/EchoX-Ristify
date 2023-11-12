@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
+//TODO: finish unimplemented methods - Andrei
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
@@ -34,7 +35,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "select u from User u WHERE u.createdAt between :startDate and :endDate")
     List<User> findByCreatedAtBetween(final Timestamp startDate, final Timestamp endDate);
 
+    @Query(value = "select u from User u where u.userId in :ids")
+    List<User> findMultipleById(final List<Integer> ids);
+
+    //TODO: we should also delete all friendships containing the deleted user id!!!
     @Transactional
-    @Query(value = "delete from User u where u.userId=:id")
-    void deleteUserById(final Integer id);
+    @Query(value = "delete from Users u where u.user_id=:id returning *",nativeQuery = true)
+    Optional<User> deleteUserById(final Integer id);
 }
