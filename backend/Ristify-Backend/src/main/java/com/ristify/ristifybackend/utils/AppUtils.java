@@ -10,6 +10,10 @@ public class AppUtils {
     public static final String SUCCESS = "Success";
     public static final String HOST = "http://localhost:";
 
+    public static String constructFailedToFetch(final Class<?> clazz) {
+        return "Could not fetch " + clazz.getSimpleName() + "s";
+    }
+
     public static String constructNotFoundMessage(Class<?> clazz, final String propertyName, final Object value) {
         return "Could not find " + clazz.getSimpleName() + " with " + propertyName + ": " + value;
     }

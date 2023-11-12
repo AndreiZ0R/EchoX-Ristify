@@ -36,7 +36,7 @@ public class UserController extends AbstractMessageController {
         List<UserDTO> users = userService.getAllUsers();
         return !users.isEmpty() ?
                successResponse(users) :
-               failureResponse("Failed to fetch users", HttpStatus.NOT_FOUND);
+               failureResponse(AppUtils.constructFailedToFetch(User.class), HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/{id}")
