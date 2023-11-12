@@ -20,7 +20,10 @@ public class TestController extends AbstractMessageController {
     private PlaylistSongRepository playlistSongRepository;
 
     @Autowired
-    public TestController(final UserRepository userRepository, FriendshipRepository friendshipRepository, PlaylistSongRepository playlistSongRepository) {
+    public TestController(
+            final UserRepository userRepository,
+            final FriendshipRepository friendshipRepository,
+            final PlaylistSongRepository playlistSongRepository) {
         this.userRepository = userRepository;
         this.friendshipRepository = friendshipRepository;
         this.playlistSongRepository = playlistSongRepository;
