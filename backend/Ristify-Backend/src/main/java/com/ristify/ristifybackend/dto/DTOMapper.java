@@ -1,5 +1,6 @@
 package com.ristify.ristifybackend.dto;
 
+import com.ristify.ristifybackend.models.Playlist;
 import com.ristify.ristifybackend.models.Song;
 import com.ristify.ristifybackend.models.User;
 
@@ -22,6 +23,13 @@ public class DTOMapper {
                 song.getSongName(),
                 song.getArtistName(),
                 song.getAlbumName()
+        );
+    }
+
+    public static PlaylistDTO mapPlaylistToDTO(final Playlist playlist) {
+        return new PlaylistDTO(
+                DTOMapper.mapUserToDTO(playlist.getUser()),
+                playlist.getName()
         );
     }
 }

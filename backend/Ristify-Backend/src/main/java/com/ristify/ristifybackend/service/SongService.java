@@ -19,9 +19,13 @@ public class SongService {
     private final SongRepository songRepository;
 
     @Autowired
-    public SongService(final SongRepository songRepository) { this.songRepository = songRepository; }
+    public SongService(final SongRepository songRepository) {
+        this.songRepository = songRepository;
+    }
 
-    public List<SongDTO> getAllSongs() { return songRepository.findAll().stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList()); }
+    public List<SongDTO> getAllSongs() {
+        return songRepository.findAll().stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
+    }
 
     public Optional<SongDTO> findUserById(final Integer songId) {
         return songRepository.findById(songId).map(DTOMapper::mapSongToDTO);
@@ -47,5 +51,10 @@ public class SongService {
 
     public Optional<SongDTO> saveSong(final Song song) {
         return Optional.of(DTOMapper.mapSongToDTO(songRepository.save(song)));
+    }
+
+    public Optional<SongDTO> deleteSongById(final Integer id) {
+        songRepository.deleteById(id);
+        return songRepository.findById(id).map(DTOMapper::mapSongToDTO);
     }
 }

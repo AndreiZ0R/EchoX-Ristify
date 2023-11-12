@@ -25,7 +25,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Playlist {
     @Id
-    @Column(name = "playlist_id")
+    @Column(name = "playlist_id", insertable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer playlistId;
 
