@@ -10,14 +10,16 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Entity
 @Table(name = "users")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -25,7 +27,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId", unique = true, nullable = false)
+    @Column(name = "user_id", unique = true, nullable = false)
     private Integer userId;
 
     @Column(name = "username", unique = true, nullable = false)
@@ -34,10 +36,10 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @Column(name = "email", unique = true, nullable = false)
@@ -46,12 +48,12 @@ public class User {
     @Column(name = "country", nullable = false)
     private String country;
 
-    @Column(name = "createdAt", nullable = false)
+    @Column(name = "created_at", nullable = false)
     private Timestamp createdAt;
 
-    @Column(name = "lastLogin", nullable = false)
+    @Column(name = "last_login", nullable = false)
     private Timestamp lastLogin;
 
-    @Column(name = "birthDate", nullable = false)
+    @Column(name = "birth_date", nullable = false)
     private Date birthDate;
 }

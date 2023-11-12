@@ -1,4 +1,4 @@
-package com.ristify.ristifybackend.models.composite.keys;
+package com.ristify.ristifybackend.models.keys;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class PlaylistSongKey implements Serializable {
-    private Integer playlist;
-    private Integer song;
+public class FriendshipKey implements Serializable {
+    private Integer userId1;
+    private Integer userId2;
 }

@@ -3,6 +3,7 @@ package com.ristify.ristifybackend.repository;
 
 import com.ristify.ristifybackend.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
@@ -10,27 +11,26 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository <User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    User save(User user);
+    @Query(value = "select u from User u where u.username=:username")
+    Optional<User> findByUsername(final String username);
 
-    void deleteByUserId(Integer userId);
+    @Query(value = "select u from User u where u.firstName=:firstName")
+    Optional<User> findByFirstName(final String firstName);
 
-    Optional<User> findByUserId(Integer userId);
+    @Query(value = "select u from User u where u.lastName=:lastName")
+    Optional<User> findByLastName(final String lastName);
 
-    Optional<User> findByUsername(String username);
+    @Query(value = "select u from User u where u.email=:email")
+    Optional<User> findByEmail(final String email);
 
-    Optional<User> findByFirstName(String firstName);
+    @Query(value = "select u from User u where u.country=:country")
+    List<User> findAllByCountry(final String country);
 
-    Optional<User> findByLastName(String lastName);
+    @Query(value = "select u from User u WHERE u.username like %:pattern%")
+    List<User> findByUsernameContaining(final String pattern);
 
-    Optional<User> findByEmail(String email);
-
-    List<User> findAllByCountry(String country);
-
-    List<User> findByUsernameContaining(String pattern);
-
-    List<User> findByCreatedAtBetween(Timestamp startDate, Timestamp endDate);
-
-    List<User> findByLastLoginBefore(Timestamp date);
+    @Query(value = "select u from User u WHERE u.createdAt between :startDate and :endDate")
+    List<User> findByCreatedAtBetween(final Timestamp startDate, final Timestamp endDate);
 }
