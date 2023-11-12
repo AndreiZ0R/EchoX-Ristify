@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 
 public class AbstractMessageController {
+
     public Response successResponse(final Object body) {
         return response(body, HttpStatus.OK, AppUtils.SUCCESS);
     }

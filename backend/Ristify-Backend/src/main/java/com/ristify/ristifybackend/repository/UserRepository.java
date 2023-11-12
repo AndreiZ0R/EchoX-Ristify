@@ -1,4 +1,3 @@
-
 package com.ristify.ristifybackend.repository;
 
 import com.ristify.ristifybackend.models.User;

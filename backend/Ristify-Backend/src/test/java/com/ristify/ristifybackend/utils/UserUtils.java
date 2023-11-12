@@ -3,7 +3,7 @@ package com.ristify.ristifybackend.utils;
 import com.ristify.ristifybackend.models.User;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Date;
 
 public class UserUtils {
 
@@ -24,7 +24,7 @@ public class UserUtils {
                 Randoms.alphabetic(),
                 new Timestamp(System.currentTimeMillis()),
                 new Timestamp(System.currentTimeMillis()),
-                new Date());
+                new Date(System.currentTimeMillis()));
     }
 
     public static User createUser(
