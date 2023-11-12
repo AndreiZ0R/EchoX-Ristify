@@ -27,7 +27,7 @@ import java.sql.Timestamp;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", unique = true, nullable = false)
+    @Column(name = "user_id", unique = true, nullable = false, insertable = false)
     private Integer userId;
 
     @Column(name = "username", unique = true, nullable = false)
@@ -48,10 +48,10 @@ public class User {
     @Column(name = "country", nullable = false)
     private String country;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, columnDefinition = "timestamp NOT NULL DEFAULT NOW()", insertable = false)
     private Timestamp createdAt;
 
-    @Column(name = "last_login", nullable = false)
+    @Column(name = "last_login", nullable = false, columnDefinition = "timestamp NOT NULL DEFAULT NOW()", insertable = false)
     private Timestamp lastLogin;
 
     @Column(name = "birth_date", nullable = false)

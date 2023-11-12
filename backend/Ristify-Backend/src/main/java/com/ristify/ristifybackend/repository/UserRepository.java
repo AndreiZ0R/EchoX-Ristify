@@ -1,6 +1,7 @@
 package com.ristify.ristifybackend.repository;
 
 import com.ristify.ristifybackend.models.User;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -32,4 +33,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query(value = "select u from User u WHERE u.createdAt between :startDate and :endDate")
     List<User> findByCreatedAtBetween(final Timestamp startDate, final Timestamp endDate);
+
+    @Transactional
+    @Query(value = "delete from User u where u.userId=:id")
+    void deleteUserById(final Integer id);
 }

@@ -4,9 +4,13 @@ import com.ristify.ristifybackend.response.Response;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class AbstractMessageController {
+    //TODO: handle lists empty for success / failure
+
 
     public Response successResponse(final Object body) {
         return response(body, HttpStatus.OK, AppUtils.SUCCESS);
