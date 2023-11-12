@@ -24,7 +24,7 @@ import lombok.ToString;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "song_id", unique = true, nullable = false)
+    @Column(name = "song_id", unique = true, nullable = false, insertable = false)
     private Integer songId;
 
     @Column(name = "song_name", nullable = false)

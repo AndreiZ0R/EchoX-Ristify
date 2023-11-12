@@ -1,5 +1,6 @@
 package com.ristify.ristifybackend.dto;
 
+import com.ristify.ristifybackend.models.Song;
 import com.ristify.ristifybackend.models.User;
 
 public class DTOMapper {
@@ -13,5 +14,14 @@ public class DTOMapper {
                 user.getCountry(),
                 user.getCreatedAt(),
                 user.getBirthDate());
+    }
+
+    public static SongDTO mapSongToDTO(final Song song) {
+        return new SongDTO(
+                song.getSongId(),
+                song.getSongName(),
+                song.getArtistName(),
+                song.getAlbumName()
+        );
     }
 }
