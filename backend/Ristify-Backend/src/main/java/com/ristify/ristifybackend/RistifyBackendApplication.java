@@ -1,5 +1,6 @@
 package com.ristify.ristifybackend;
 
+import lombok.NonNull;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +19,7 @@ public class RistifyBackendApplication {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(final CorsRegistry registry) {
+            public void addCorsMappings(@NonNull final CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins(VITE_DEFAULT_HOST);
             }
         };
