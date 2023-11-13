@@ -1,12 +1,11 @@
 package com.ristify.ristifybackend.controller;
 
-import com.ristify.ristifybackend.dto.UserDTO;
+import com.ristify.ristifybackend.dto.user.UserDTO;
 import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.UserService;
 import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+//TODO: tests - Andrei
 @RestController
 @RequestMapping(AppUtils.usersControllerEndpoint)
-@Slf4j
 public class UserController extends AbstractMessageController {
 
     private final UserService userService;
@@ -63,8 +62,8 @@ public class UserController extends AbstractMessageController {
     @DeleteMapping("/{id}")
     public Response deleteUserById(@PathVariable final Integer id) {
         return userService.deleteUserById(id)
-                .map(user -> failureResponse(AppUtils.constructFailedDeleteMessage(User.class, user), HttpStatus.NOT_FOUND))
-                .orElse(successResponse(AppUtils.constructSuccessDeleteMessage(User.class, id)));
+                .map(this::successResponse)
+                .orElse(failureResponse(AppUtils.constructFailedDeleteMessage(User.class, id), HttpStatus.NOT_FOUND));
     }
 
 }

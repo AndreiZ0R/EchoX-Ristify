@@ -1,5 +1,8 @@
 package com.ristify.ristifybackend.dto;
 
+import com.ristify.ristifybackend.dto.friendship.FriendshipDTO;
+import com.ristify.ristifybackend.dto.user.UserDTO;
+import com.ristify.ristifybackend.models.Friendship;
 import com.ristify.ristifybackend.models.Playlist;
 import com.ristify.ristifybackend.models.Song;
 import com.ristify.ristifybackend.models.User;
@@ -16,6 +19,14 @@ public class DTOMapper {
                 user.getCreatedAt(),
                 user.getBirthDate());
     }
+
+    public static FriendshipDTO mapFriendshipToDTO(final Friendship friendship) {
+        return new FriendshipDTO(
+                mapUserToDTO(friendship.getUserId1()),
+                mapUserToDTO(friendship.getUserId2()),
+                friendship.getCreatedAt());
+    }
+}
 
     public static SongDTO mapSongToDTO(final Song song) {
         return new SongDTO(

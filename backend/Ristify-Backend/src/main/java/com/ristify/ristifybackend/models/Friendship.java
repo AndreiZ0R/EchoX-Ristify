@@ -9,34 +9,34 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "friendships")
 @IdClass(FriendshipKey.class)
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class Friendship {
     @Id
+    @NonNull
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "user_id1", unique = true, nullable = false)
     private User userId1;
 
     @Id
+    @NonNull
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "user_id2", unique = true, nullable = false)
     private User userId2;
 
-    @Column(name = "created_at", nullable = false)
+    @NonNull
+    @Column(name = "created_at", nullable = false, columnDefinition = "timestamp DEFAULT NOW()", insertable = false)
     private Timestamp createdAt;
 }

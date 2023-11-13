@@ -1,7 +1,7 @@
 package com.ristify.ristifybackend.service;
 
 import com.ristify.ristifybackend.dto.DTOMapper;
-import com.ristify.ristifybackend.dto.UserDTO;
+import com.ristify.ristifybackend.dto.user.UserDTO;
 import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+//TODO: tests - Andrei
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -37,7 +38,6 @@ public class UserService {
     }
 
     public Optional<UserDTO> deleteUserById(final Integer id) {
-        userRepository.deleteById(id);
-        return userRepository.findById(id).map(DTOMapper::mapUserToDTO);
+        return userRepository.deleteUserById(id).map(DTOMapper::mapUserToDTO);
     }
 }

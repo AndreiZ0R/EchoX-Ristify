@@ -3,6 +3,8 @@ package com.ristify.ristifybackend.utils;
 public class AppUtils {
     public static final String testControllerEndpoint = "api/test";
     public static final String usersControllerEndpoint = "api/users";
+    public static final String friendshipsControllerEndpoint = "/api/friendships";
+    public static final String playlistSongControllerEndpoint = "/api/playlistSongs";
     public static final String songControllerEndpoint = "api/songs";
     public static final String playlistControllerEndpoint = "api/playlists";
     public static final String APPLICATION_JSON = "application/json";
@@ -24,11 +26,7 @@ public class AppUtils {
         return "Could not save " + clazz.getSimpleName();
     }
 
-    public static String constructFailedDeleteMessage(final Class<?> clazz, final Object object) {
-        return "Failed to delete " + clazz.getSimpleName() + ": " + object;
-    }
-
-    public static String constructSuccessDeleteMessage(final Class<?> clazz, final Object id) {
-        return "Successfully deleted " + clazz.getSimpleName() + ": " + id;
+    public static String constructFailedDeleteMessage(final Class<?> clazz, final Object id) {
+        return "Failed to delete " + clazz.getSimpleName() + "with id(s): " + id;
     }
 }
