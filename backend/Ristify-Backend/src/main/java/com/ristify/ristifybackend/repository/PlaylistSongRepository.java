@@ -14,13 +14,10 @@ import java.util.Optional;
 public interface PlaylistSongRepository extends JpaRepository<PlaylistSong, PlaylistSongKey> {
 
     @Query(value = "select * from Playlistsongs ps where ps.playlist_id=:playlistId", nativeQuery = true)
-    List<PlaylistSong> getAllSongsFromPlaylist(final Integer playlistId);
+    List<PlaylistSong> findAllSongsFromPlaylist(final Integer playlistId);
 
     @Query(value = "select * from Playlistsongs ps where ps.song_id=:songId", nativeQuery = true)
-    List<PlaylistSong> getAllPlaylistsContainingSong(final Integer songId);
-
-    @Query(value = "select ps from PlaylistSong ps")
-    List<PlaylistSong> getAll();
+    List<PlaylistSong> findAllPlaylistsContainingSong(final Integer songId);
 
     @Transactional
     @Query(value = "insert into Playlistsongs(playlist_id, song_id) values (:playlistId, :songId) returning *",

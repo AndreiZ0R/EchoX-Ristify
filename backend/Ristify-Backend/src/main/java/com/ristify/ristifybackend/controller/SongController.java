@@ -21,7 +21,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(AppUtils.songControllerEndpoint)
-@Slf4j
 public class SongController extends AbstractMessageController {
 
     private final SongService songService;
@@ -35,16 +34,16 @@ public class SongController extends AbstractMessageController {
     public Response getAllSongs() {
         List<SongDTO> songs = songService.getAllSongs();
         return !songs.isEmpty() ?
-                successResponse(songs) :
-                failureResponse(AppUtils.constructFailedToFetch(Song.class), HttpStatus.NOT_FOUND);
+               successResponse(songs) :
+               failureResponse(AppUtils.constructFailedToFetch(Song.class), HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/page={page}&size={size}")
     public Response getPaginatedSongs(@PathVariable final int page, @PathVariable final int size) {
         List<SongDTO> paginatedSongs = songService.getPaginatedSongs(page, size);
         return !paginatedSongs.isEmpty() ?
-                successResponse(paginatedSongs) :
-                failureResponse(AppUtils.constructFailedToFetch(Song.class), HttpStatus.NOT_FOUND);
+               successResponse(paginatedSongs) :
+               failureResponse(AppUtils.constructFailedToFetch(Song.class), HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/{songId}")
@@ -56,23 +55,26 @@ public class SongController extends AbstractMessageController {
 
     @GetMapping("/name={name}")
     public Response getSongByName(@PathVariable final String name) {
-        return songService.findByName(name)
-                .map(this::successResponse)
-                .orElse(failureResponse(AppUtils.constructNotFoundMessage(Song.class, "name", name), HttpStatus.NOT_FOUND));
+        List<SongDTO> songs = songService.findByName(name);
+        return !songs.isEmpty() ?
+               successResponse(songs) :
+               failureResponse(AppUtils.constructNotFoundMessage(Song.class, "name", name), HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/artist={artist}")
     public Response getSongByArtist(@PathVariable final String artist) {
-        return songService.findByArtist(artist)
-                .map(this::successResponse)
-                .orElse(failureResponse(AppUtils.constructNotFoundMessage(Song.class, "artist", artist), HttpStatus.NOT_FOUND));
+        List<SongDTO> songs = songService.findByArtist(artist);
+        return !songs.isEmpty() ?
+               successResponse(songs) :
+               failureResponse(AppUtils.constructNotFoundMessage(Song.class, "artist", artist), HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/album={album}")
     public Response getSongByAlbum(@PathVariable final String album) {
-        return songService.findByAlbum(album)
-                .map(this::successResponse)
-                .orElse(failureResponse(AppUtils.constructNotFoundMessage(Song.class, "album", album), HttpStatus.NOT_FOUND));
+        List<SongDTO> songs = songService.findByAlbum(album);
+        return !songs.isEmpty() ?
+               successResponse(songs) :
+               failureResponse(AppUtils.constructNotFoundMessage(Song.class, "album", album), HttpStatus.NOT_FOUND);
     }
 
     @PostMapping(consumes = "application/json")
@@ -82,11 +84,10 @@ public class SongController extends AbstractMessageController {
                 .orElse(failureResponse(AppUtils.constructFailedSaveMessage(Song.class), HttpStatus.BAD_REQUEST));
     }
 
-    // TODO handle delete response
     @DeleteMapping("/{id}")
     public Response deleteSongById(@PathVariable final Integer id) {
         return songService.deleteSongById(id)
-                .map(song -> failureResponse(AppUtils.constructFailedDeleteMessage(Song.class, song), HttpStatus.NOT_FOUND))
-                .orElse(successResponse(AppUtils.constructSuccessDeleteMessage(Song.class, id)));
+                .map(this::successResponse)
+                .orElse(failureResponse(AppUtils.constructFailedDeleteMessage(Song.class, id), HttpStatus.NOT_FOUND));
     }
 }

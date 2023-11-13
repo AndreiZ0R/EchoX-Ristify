@@ -28,7 +28,7 @@ public class PlaylistService {
         this.userRepository = userRepository;
     }
 
-    public List<PlaylistDTO> getAllPlaylists() {
+    public List<PlaylistDTO> findAllPlaylists() {
         return playlistRepository.findAll().stream().map(DTOMapper::mapPlaylistToDTO).collect(Collectors.toList());
     }
 
@@ -51,6 +51,7 @@ public class PlaylistService {
             playlistRepository.storePlaylist(savePlaylistDTO.userId(), savePlaylistDTO.name());
             return playlistRepository.findByName(savePlaylistDTO.name()).map(DTOMapper::mapPlaylistToDTO);
         }
+
         return Optional.empty();
     }
 

@@ -31,6 +31,7 @@ public class SongService {
         return songRepository.findById(songId).map(DTOMapper::mapSongToDTO);
     }
 
+    //TODO: maybe do this do other services
     public List<SongDTO> getPaginatedSongs(final int page, final int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Song> songPage = songRepository.findAll(pageable);
@@ -54,7 +55,6 @@ public class SongService {
     }
 
     public Optional<SongDTO> deleteSongById(final Integer id) {
-        songRepository.deleteById(id);
-        return songRepository.findById(id).map(DTOMapper::mapSongToDTO);
+        return songRepository.deleteSongById(id).map(DTOMapper::mapSongToDTO);
     }
 }

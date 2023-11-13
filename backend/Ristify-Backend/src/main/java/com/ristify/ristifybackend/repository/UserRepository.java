@@ -32,6 +32,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "select u from User u WHERE u.username like %:pattern%")
     List<User> findByUsernameContaining(final String pattern);
 
+    //TODO: this
     @Query(value = "select u from User u WHERE u.createdAt between :startDate and :endDate")
     List<User> findByCreatedAtBetween(final Timestamp startDate, final Timestamp endDate);
 

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(AppUtils.testControllerEndpoint)
 public class TestController extends AbstractMessageController {
-    private UserRepository userRepository;
-    private FriendshipRepository friendshipRepository;
-    private PlaylistSongRepository playlistSongRepository;
+    private final UserRepository userRepository;
+    private final FriendshipRepository friendshipRepository;
+    private final PlaylistSongRepository playlistSongRepository;
 
     @Autowired
     public TestController(
@@ -56,6 +56,6 @@ public class TestController extends AbstractMessageController {
 
     @GetMapping("/playlists/{id}/songs")
     public Response getAllPlaylistSongs(@PathVariable final Integer id) {
-        return successResponse(playlistSongRepository.getAllSongsFromPlaylist(id));
+        return successResponse(playlistSongRepository.findAllSongsFromPlaylist(id));
     }
 }

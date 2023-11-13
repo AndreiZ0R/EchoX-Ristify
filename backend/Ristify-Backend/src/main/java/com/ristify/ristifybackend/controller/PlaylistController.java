@@ -22,7 +22,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(AppUtils.playlistControllerEndpoint)
-@Slf4j
 public class PlaylistController extends AbstractMessageController {
 
     private final PlaylistService playlistService;
@@ -34,7 +33,7 @@ public class PlaylistController extends AbstractMessageController {
 
     @GetMapping
     public Response getAllPlaylists() {
-        List<PlaylistDTO> playlists = playlistService.getAllPlaylists();
+        List<PlaylistDTO> playlists = playlistService.findAllPlaylists();
         return !playlists.isEmpty() ?
                 successResponse(playlists) :
                 failureResponse(AppUtils.constructFailedToFetch(Playlist.class), HttpStatus.NOT_FOUND);
