@@ -6,9 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -17,8 +19,10 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "users")
-@Data
+@AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @OnDelete(action = OnDeleteAction.CASCADE)
 public class User {
     @Id

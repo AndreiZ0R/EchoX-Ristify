@@ -2,8 +2,8 @@ package com.ristify.ristifybackend.utils;
 
 import com.ristify.ristifybackend.models.User;
 
-import java.sql.Timestamp;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class UserUtils {
 
