@@ -7,7 +7,6 @@ import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.PlaylistService;
 import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,7 +39,7 @@ public class PlaylistController extends AbstractMessageController {
     }
 
     @GetMapping("/page={page}&size={size}")
-    public Response getPaginatedSongs(@PathVariable final int page, @PathVariable final int size) {
+    public Response getPaginatedPlaylists(@PathVariable final int page, @PathVariable final int size) {
         List<PlaylistDTO> paginatedPlaylists = playlistService.getPaginatedPlaylist(page, size);
         return !paginatedPlaylists.isEmpty() ?
                 successResponse(paginatedPlaylists) :
