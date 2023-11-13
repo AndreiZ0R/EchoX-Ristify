@@ -4,6 +4,7 @@ public class AppUtils {
     public static final String testControllerEndpoint = "api/test";
     public static final String usersControllerEndpoint = "api/users";
     public static final String friendshipsControllerEndpoint = "/api/friendships";
+    public static final String playlistSongControllerEndpoint = "/api/playlistSongs";
     public static final String APPLICATION_JSON = "application/json";
     public static final String MESSAGE = "message";
     public static final String STATUS = "status";
