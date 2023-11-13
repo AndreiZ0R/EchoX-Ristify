@@ -1,7 +1,7 @@
 package com.ristify.ristifybackend.service;
 
 import com.ristify.ristifybackend.dto.DTOMapper;
-import com.ristify.ristifybackend.dto.SongDTO;
+import com.ristify.ristifybackend.dto.song.SongDTO;
 import com.ristify.ristifybackend.models.Song;
 import com.ristify.ristifybackend.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +37,16 @@ public class SongService {
         return songPage.stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
     }
 
-    public Optional<SongDTO> findByName(final String name) {
-        return songRepository.findByName(name).map(DTOMapper::mapSongToDTO);
+    public List<SongDTO> findByName(final String name) {
+        return songRepository.findByName(name).stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
     }
 
-    public Optional<SongDTO> findByArtist(final String artist) {
-        return songRepository.findByArtist(artist).map(DTOMapper::mapSongToDTO);
+    public List<SongDTO> findByArtist(final String artist) {
+        return songRepository.findByArtist(artist).stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
     }
 
-    public Optional<SongDTO> findByAlbum(final String album) {
-        return songRepository.findByAlbum(album).map(DTOMapper::mapSongToDTO);
+    public List<SongDTO> findByAlbum(final String album) {
+        return songRepository.findByAlbum(album).stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
     }
 
     public Optional<SongDTO> saveSong(final Song song) {

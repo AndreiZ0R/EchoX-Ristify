@@ -1,4 +1,4 @@
-package com.ristify.ristifybackend.dto;
+package com.ristify.ristifybackend.dto.playlist;
 
 import java.io.Serializable;
 

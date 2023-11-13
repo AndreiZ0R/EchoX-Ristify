@@ -28,6 +28,6 @@ public interface PlaylistRepository extends JpaRepository<Playlist, Integer> {
     Optional<Playlist> findByName(final String name);
 
     @Transactional
-    @Query(value = "delete from Playlist u where u.playlistId=:id")
-    void deletePlaylistById(final Integer id);
+    @Query(value = "delete from Playlists where playlist_id=:id returning *", nativeQuery = true)
+    Optional<Playlist> deletePlaylistById(final Integer id);
 }

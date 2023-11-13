@@ -1,7 +1,7 @@
 package com.ristify.ristifybackend.controller;
 
-import com.ristify.ristifybackend.dto.PlaylistDTO;
-import com.ristify.ristifybackend.dto.SavePlaylistDTO;
+import com.ristify.ristifybackend.dto.playlist.PlaylistDTO;
+import com.ristify.ristifybackend.dto.playlist.SavePlaylistDTO;
 import com.ristify.ristifybackend.models.Playlist;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.PlaylistService;
@@ -72,7 +72,7 @@ public class PlaylistController extends AbstractMessageController {
     @DeleteMapping("/{id}")
     public Response deletePlaylistById(@PathVariable final Integer id) {
         return playlistService.deletePlaylistById(id)
-                .map(playlist -> failureResponse(AppUtils.constructFailedDeleteMessage(Playlist.class, playlist), HttpStatus.NOT_FOUND))
-                .orElse(successResponse(AppUtils.constructSuccessDeleteMessage(Playlist.class, id)));
+                .map(this::successResponse)
+                .orElse(failureResponse(AppUtils.constructFailedDeleteMessage(Playlist.class, id), HttpStatus.NOT_FOUND));
     }
 }

@@ -1,6 +1,6 @@
 package com.ristify.ristifybackend.controller;
 
-import com.ristify.ristifybackend.dto.SongDTO;
+import com.ristify.ristifybackend.dto.song.SongDTO;
 import com.ristify.ristifybackend.models.Song;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.SongService;

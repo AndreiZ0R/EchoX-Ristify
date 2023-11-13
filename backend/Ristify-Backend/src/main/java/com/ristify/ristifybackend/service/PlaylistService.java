@@ -1,8 +1,8 @@
 package com.ristify.ristifybackend.service;
 
 import com.ristify.ristifybackend.dto.DTOMapper;
-import com.ristify.ristifybackend.dto.PlaylistDTO;
-import com.ristify.ristifybackend.dto.SavePlaylistDTO;
+import com.ristify.ristifybackend.dto.playlist.PlaylistDTO;
+import com.ristify.ristifybackend.dto.playlist.SavePlaylistDTO;
 import com.ristify.ristifybackend.models.Playlist;
 import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.repository.PlaylistRepository;
@@ -55,7 +55,6 @@ public class PlaylistService {
     }
 
     public Optional<PlaylistDTO> deletePlaylistById(final Integer id) {
-        playlistRepository.deleteById(id);
-        return playlistRepository.findById(id).map(DTOMapper::mapPlaylistToDTO);
+        return playlistRepository.deletePlaylistById(id).map(DTOMapper::mapPlaylistToDTO);
     }
 }
