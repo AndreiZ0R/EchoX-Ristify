@@ -1,5 +1,8 @@
-package com.ristify.ristifybackend.utils;
+package com.ristify.ristifybackend.integration;
 
+import com.ristify.ristifybackend.utils.AppHttpMethod;
+import com.ristify.ristifybackend.utils.AppUtils;
+import com.ristify.ristifybackend.utils.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +28,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class AbstractControllerUnitTest {
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractControllerUnitTest.class);
+public class AbstractControllerIntegrationTest {
+    private static final Logger LOG = LoggerFactory.getLogger(AbstractControllerIntegrationTest.class);
 
     @LocalServerPort
     private int port;

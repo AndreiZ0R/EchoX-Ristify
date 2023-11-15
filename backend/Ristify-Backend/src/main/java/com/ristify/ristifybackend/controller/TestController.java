@@ -4,7 +4,6 @@ import com.ristify.ristifybackend.repository.FriendshipRepository;
 import com.ristify.ristifybackend.repository.PlaylistSongRepository;
 import com.ristify.ristifybackend.repository.UserRepository;
 import com.ristify.ristifybackend.response.Response;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(AppUtils.testControllerEndpoint)
-public class TestController extends AbstractMessageController {
+public class TestController extends ConcreteMessageController {
     private final UserRepository userRepository;
     private final FriendshipRepository friendshipRepository;
     private final PlaylistSongRepository playlistSongRepository;

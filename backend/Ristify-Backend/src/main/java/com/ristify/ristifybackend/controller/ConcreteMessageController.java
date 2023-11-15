@@ -1,14 +1,13 @@
-package com.ristify.ristifybackend.utils;
+package com.ristify.ristifybackend.controller;
 
 import com.ristify.ristifybackend.response.Response;
+import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 
-import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
-public class AbstractMessageController {
+public class ConcreteMessageController {
     //TODO: handle lists empty for success / failure
 
 

@@ -5,7 +5,6 @@ import com.ristify.ristifybackend.dto.playlist.SavePlaylistDTO;
 import com.ristify.ristifybackend.models.Playlist;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.PlaylistService;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(AppUtils.playlistControllerEndpoint)
-public class PlaylistController extends AbstractMessageController {
+public class PlaylistController extends ConcreteMessageController {
 
     private final PlaylistService playlistService;
 

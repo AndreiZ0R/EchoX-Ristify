@@ -4,7 +4,6 @@ import com.ristify.ristifybackend.dto.user.UserDTO;
 import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.UserService;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,7 @@ import java.util.List;
 //TODO: tests - Andrei
 @RestController
 @RequestMapping(AppUtils.usersControllerEndpoint)
-public class UserController extends AbstractMessageController {
+public class UserController extends ConcreteMessageController {
 
     private final UserService userService;
 

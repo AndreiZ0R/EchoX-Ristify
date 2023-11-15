@@ -6,7 +6,6 @@ import com.ristify.ristifybackend.models.Friendship;
 import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.FriendshipService;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,7 @@ import java.util.List;
 //TODO: tests - Andrei
 @RestController
 @RequestMapping(AppUtils.friendshipsControllerEndpoint)
-public class FriendshipController extends AbstractMessageController {
+public class FriendshipController extends ConcreteMessageController {
 
     private final FriendshipService friendshipService;
 

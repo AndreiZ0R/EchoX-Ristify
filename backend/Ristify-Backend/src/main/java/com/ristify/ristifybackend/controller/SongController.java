@@ -4,7 +4,6 @@ import com.ristify.ristifybackend.dto.song.SongDTO;
 import com.ristify.ristifybackend.models.Song;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.SongService;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(AppUtils.songControllerEndpoint)
-public class SongController extends AbstractMessageController {
+public class SongController extends ConcreteMessageController {
 
     private final SongService songService;
 

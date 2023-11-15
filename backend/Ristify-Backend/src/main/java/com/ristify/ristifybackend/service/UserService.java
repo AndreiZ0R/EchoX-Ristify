@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-//TODO: tests - Andrei
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -34,7 +34,9 @@ public class UserService {
     }
 
     public Optional<UserDTO> saveUser(final User user) {
-        return Optional.of(DTOMapper.mapUserToDTO(userRepository.save(user)));
+        return Objects.nonNull(user) ?
+               Optional.of(DTOMapper.mapUserToDTO(userRepository.save(user))) :
+               Optional.empty();
     }
 
     public Optional<UserDTO> deleteUserById(final Integer id) {

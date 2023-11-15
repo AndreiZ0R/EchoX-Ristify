@@ -7,7 +7,6 @@ import com.ristify.ristifybackend.models.Playlist;
 import com.ristify.ristifybackend.models.PlaylistSong;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.PlaylistSongService;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
@@ -25,7 +24,7 @@ import java.util.List;
 //TODO: tests
 @RestController
 @RequestMapping(AppUtils.playlistSongControllerEndpoint)
-public class PlaylistSongController extends AbstractMessageController {
+public class PlaylistSongController extends ConcreteMessageController {
 
     private final PlaylistSongService playlistSongService;
 

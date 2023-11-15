@@ -40,6 +40,7 @@ public class FriendshipService {
     public Optional<FriendshipDTO> saveFriendship(final SaveFriendshipDTO saveFriendshipDTO) {
         List<User> foundUsers = userRepository.findMultipleById(List.of(saveFriendshipDTO.userId1(), saveFriendshipDTO.userId2()));
 
+
         return foundUsers.size() == 2 ?
                friendshipRepository.storeFriendship(saveFriendshipDTO.userId1(), saveFriendshipDTO.userId2()).map(DTOMapper::mapFriendshipToDTO) :
                Optional.empty();

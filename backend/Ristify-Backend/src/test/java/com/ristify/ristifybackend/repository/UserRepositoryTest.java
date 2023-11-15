@@ -1,8 +1,10 @@
 package com.ristify.ristifybackend.repository;
 
 import com.ristify.ristifybackend.models.User;
+import com.ristify.ristifybackend.utils.AbstractUnitTest;
+import com.ristify.ristifybackend.utils.Randoms;
 import com.ristify.ristifybackend.utils.UserUtils;
-import org.junit.jupiter.api.BeforeEach;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,164 +12,263 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import java.util.Optional;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItems;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
-
 @SpringBootTest
-class UserRepositoryTest {
+@Transactional
+class UserRepositoryTest extends AbstractUnitTest<User> {
+    private static final String startTime = "1800-01-01 00:00:00";
+    private static final String endTime = "1900-01-01 00:00:00";
 
     @Autowired
-    private UserRepository userRepository;
-
-    @BeforeEach
-    void beforeUserRepositoryTest() {
-        // userRepository = mock(UserRepository.class);
-    }
+    private UserRepository repository;
 
     @Test
-    public void whenFindByUsername_thenReturnUser() {
+    void findByUsername_userInRepository_savesAndFindsUser() {
         // Given
         User user = UserUtils.createRandomUser();
-        userRepository.save(user);
+        repository.save(user);
 
         // When
-        Optional<User> found = userRepository.findByUsername(user.getUsername());
+        Optional<User> result = repository.findByUsername(user.getUsername());
 
         // Then
-        assertTrue(found.isPresent());
-        assertEquals(user.getUsername(), found.get().getUsername());
+        result.ifPresentOrElse(
+                foundUser -> assertThatItemsAreEqual(foundUser, user),
+                this::assertThatFails);
     }
 
     @Test
-    public void whenFindByEmail_thenReturnUser() {
+    void findByUsername_userNotInRepository_returnsEmpty() {
+        // Given & When
+        Optional<User> result = repository.findByUsername(Randoms.alphabetic());
+
+        // Then
+        result.ifPresent(this::assertThatFails);
+    }
+
+    @Test
+    void findByEmail_userInRepository_returnsUser() {
         // Given
         User user = UserUtils.createRandomUser();
+        repository.save(user);
 
         // When
-        Optional<User> found = userRepository.findByEmail(user.getEmail());
+        Optional<User> result = repository.findByEmail(user.getEmail());
 
         // Then
-        assertTrue(found.isPresent());
-        assertEquals(user.getEmail(), found.get().getEmail());
+        result.ifPresentOrElse(
+                foundUser -> assertThatItemsAreEqual(foundUser, user),
+                this::assertThatFails);
     }
 
     @Test
-    public void whenFindByFirstName_thenReturnUser() {
+    void findByEmail_userNotInRepository_returnsEmpty() {
+        // Given & When
+        Optional<User> result = repository.findByEmail(Randoms.alphabetic());
+
+        // Then
+        result.ifPresent(this::assertThatFails);
+    }
+
+    @Test
+    void findByFirstName_userInRepository_returnsUser() {
         // Given
         User user = UserUtils.createRandomUser();
+        repository.save(user);
 
         // When
-        Optional<User> found = userRepository.findByFirstName(user.getEmail());
+        Optional<User> result = repository.findByFirstName(user.getFirstName());
 
         // Then
-        assertTrue(found.isPresent());
-        assertEquals(user.getFirstName(), found.get().getFirstName());
+        result.ifPresentOrElse(
+                foundUser -> assertThatItemsAreEqual(foundUser, user),
+                this::assertThatFails);
     }
 
     @Test
-    public void whenFindByLastName_thenReturnUser() {
+    void findByFirstName_userNotInRepository_returnsEmpty() {
+        // Given & When
+        Optional<User> result = repository.findByFirstName(Randoms.alphabetic());
+
+        // Then
+        result.ifPresent(this::assertThatFails);
+    }
+
+    @Test
+    void findByLastName_userInRepository_returnsUser() {
         // Given
         User user = UserUtils.createRandomUser();
+        repository.save(user);
 
         // When
-        Optional<User> found = userRepository.findByLastName(user.getEmail());
+        Optional<User> result = repository.findByLastName(user.getLastName());
 
         // Then
-        assertTrue(found.isPresent());
-        assertEquals(user.getLastName(), found.get().getLastName());
+        result.ifPresentOrElse(
+                foundUser -> assertThatItemsAreEqual(foundUser, user),
+                this::assertThatFails);
     }
 
     @Test
-    public void whenFindByCountry_thenReturnUsers() {
+    void findByLastName_userNotInRepository_returnsEmpty() {
+        // Given & When
+        Optional<User> result = repository.findByLastName(Randoms.alphabetic());
+
+        // Then
+        result.ifPresent(this::assertThatFails);
+    }
+
+    @Test
+    void findAllByCountry_usersMatchCriteria_returnsUsersList() {
+        // Given
+        String country = Randoms.alphabetic();
+        List<User> users = List.of(
+                UserUtils.createRandomUserWithCountry(country),
+                UserUtils.createRandomUserWithCountry(country),
+                UserUtils.createRandomUserWithCountry(country));
+        repository.saveAll(users);
+
+        // When
+        List<User> result = repository.findAllByCountry(country);
+
+        // Then
+        assertThatItemsAreEqual(result, users);
+    }
+
+    @Test
+    void findAllByCountry_notAllUsersMatchCriteria_returnsCorrectUsers() {
+        // Given
+        String country = Randoms.alphabetic();
+        User user1 = UserUtils.createRandomUserWithCountry(country);
+        User user2 = UserUtils.createRandomUserWithCountry(country);
+        repository.saveAll(List.of(user1, UserUtils.createRandomUser(), user2));
+
+        // When
+        List<User> result = repository.findAllByCountry(country);
+
+        // Then
+        assertThatItemsAreEqual(result, List.of(user1, user2));
+    }
+
+    @Test
+    void findAllByCountry_noUserMatchesCriteria_returnsEmptyList() {
+        // Given
+        String country = Randoms.alphabetic();
+        repository.saveAll(List.of(UserUtils.createRandomUser(), UserUtils.createRandomUser()));
+
+        // When
+        List<User> result = repository.findAllByCountry(country);
+
+        // Then
+        assertThatItemsAreEqual(result, List.of());
+    }
+
+    @Test
+    void findByUsernameContaining_usersMatchCriteria_returnsUsersList() {
+        // Given
+        String pattern = Randoms.alphabetic(4);
+        List<User> users = List.of(
+                UserUtils.createRandomUser(pattern + Randoms.alphabetic(5)),
+                UserUtils.createRandomUser(pattern + Randoms.alphabetic(5)),
+                UserUtils.createRandomUser(pattern + Randoms.alphabetic(5)));
+        repository.saveAll(users);
+
+        // When
+        List<User> result = repository.findByUsernameContaining(pattern);
+
+        // Then
+        assertThatItemsAreEqual(result, users);
+    }
+
+    @Test
+    void findByUsernameContaining_notAllUsersMatchCriteria_returnsCorrectUsers() {
+        // Given
+        String pattern = Randoms.alphabetic(4);
+        User user = UserUtils.createRandomUser(pattern + Randoms.alphabetic(5));
+        repository.saveAll(List.of(user, UserUtils.createRandomUser(), UserUtils.createRandomUser()));
+
+        // When
+        List<User> result = repository.findByUsernameContaining(pattern);
+
+        // Then
+        assertThatItemsAreEqual(result, List.of(user));
+    }
+
+    @Test
+    void findByUsernameContaining_noUserMatchesCriteria_returnsEmptyList() {
+        // Given
+        String pattern = Randoms.alphabetic(4);
+        repository.saveAll(List.of(UserUtils.createRandomUser(), UserUtils.createRandomUser()));
+
+        // When
+        List<User> result = repository.findByUsernameContaining(pattern);
+
+        // Then
+        assertThatItemsAreEqual(result, List.of());
+    }
+
+    @Test
+    void findMultipleById_usersMatchCriteria_returnsUsersList() {
+        // Given
+        User user1 = UserUtils.createRandomUser();
+        User user2 = UserUtils.createRandomUser();
+        repository.saveAll(List.of(user1, user2));
+
+        // When
+        List<User> result = repository.findMultipleById(List.of(user1.getUserId(), user2.getUserId()));
+
+        // Then
+        assertThatItemsAreEqual(result, List.of(user1, user2));
+    }
+
+    @Test
+    void findMultipleById_onlyOneUserMatchesCriteria_returnsCorrectUsers() {
+        // Given
+        User user1 = UserUtils.createRandomUser();
+        repository.saveAll(List.of(user1, UserUtils.createRandomUser()));
+
+        // When
+        List<User> result = repository.findMultipleById(List.of(user1.getUserId(), Randoms.randomPositiveInteger()));
+
+        // Then
+        assertThatItemsAreEqual(result, List.of(user1));
+    }
+
+    @Test
+    void findMultipleById_noUserMatchesCriteria_returnsEmptyList() {
+        // Given
+        repository.saveAll(List.of(UserUtils.createRandomUser(), UserUtils.createRandomUser()));
+
+        // When
+        List<User> result = repository.findMultipleById(List.of(Randoms.randomPositiveInteger(), Randoms.randomPositiveInteger()));
+
+        // Then
+        assertThatItemsAreEqual(result, List.of());
+    }
+
+    @Test
+    void deleteUserById_userIsInRepository_deletesUser() {
         // Given
         User user = UserUtils.createRandomUser();
+        repository.save(user);
 
         // When
-        List<User> users = userRepository.findAllByCountry(user.getCountry());
+        Optional<User> result = repository.deleteUserById(user.getUserId());
 
         // Then
-        assertFalse(users.isEmpty());
-        assertTrue(users.contains(user));
+        result.ifPresentOrElse(
+                deletedUser -> assertThatItemsAreEqual(deletedUser, user),
+                this::assertThatFails);
     }
 
     @Test
-    public void whenDeleteByUserId_thenUserShouldBeDeleted() {
+    void deleteUserById_userIsNotInRepository_deletesUser() {
         // Given
-        User user = UserUtils.createRandomUser();
+        repository.save(UserUtils.createRandomUser());
 
         // When
-        userRepository.deleteByUserId(user.getUserId());
-        Optional<User> deletedUser = userRepository.findByUserId(user.getUserId());
+        Optional<User> result = repository.deleteUserById(Randoms.randomPositiveInteger());
 
         // Then
-        assertFalse(deletedUser.isPresent());
+        result.ifPresent(this::assertThatFails);
     }
-
-    @Test
-    public void testFindByUsernameContaining() {
-        // Given
-        String pattern = "user";
-        User user = UserUtils.createRandomUser(pattern + "123");
-        List<User> mockUsers = List.of(user, UserUtils.createRandomUser());
-        when(userRepository.findByUsernameContaining(pattern)).thenReturn(mockUsers);
-
-        // When
-        List<User> foundUsers = userRepository.findByUsernameContaining(pattern);
-
-        // Then
-        assertThat(foundUsers, hasItems(user));
-    }
-
-//    @Test
-//    public void testFindByCreatedAtBetween() {
-//        Timestamp startDate = Timestamp.valueOf("2023-01-01 00:00:00");
-//        Timestamp endDate = Timestamp.valueOf("2023-12-31 23:59:59");
-//        List<User> mockUsers = Arrays.asList(
-//                new User(
-//                        1002,
-//                        "username",
-//                        "password",
-//                        "FirstName",
-//                        "LastName",
-//                        "email@example.com",
-//                        "Country",
-//                        Timestamp.valueOf("2023-06-15 12:00:00"),
-//                        new Timestamp(System.currentTimeMillis()),
-//                        new Date())
-//        );
-//
-//        when(userRepository.findByCreatedAtBetween(startDate, endDate)).thenReturn(mockUsers);
-//        List<User> foundUsers = userRepository.findByCreatedAtBetween(startDate, endDate);
-//        assertNotNull(foundUsers);
-//        assertFalse(foundUsers.isEmpty());
-//        assertTrue(foundUsers.stream().allMatch(user -> user.getCreatedAt().after(startDate) && user.getCreatedAt().before(endDate)));
-//    }
-//
-//    @Test
-//    public void testFindByLastLoginBefore() {
-//        Timestamp date = Timestamp.valueOf("2023-09-01 00:00:00");
-//        List<User> mockUsers = Arrays.asList(
-//                new User(
-//                        1003,
-//                        "username",
-//                        "password",
-//                        "FirstName",
-//                        "LastName",
-//                        "email@example.com",
-//                        "Country",
-//                        new Timestamp(System.currentTimeMillis()),
-//                        Timestamp.valueOf("2023-08-15 12:00:00"),
-//                        new Date())
-//        );
-//
-//        when(userRepository.findByLastLoginBefore(date)).thenReturn(mockUsers);
-//        List<User> foundUsers = userRepository.findByLastLoginBefore(date);
-//        assertNotNull(foundUsers);
-//        assertFalse(foundUsers.isEmpty());
-//        assertTrue(foundUsers.stream().allMatch(user -> user.getLastLogin().before(date)));
-//    }
 }

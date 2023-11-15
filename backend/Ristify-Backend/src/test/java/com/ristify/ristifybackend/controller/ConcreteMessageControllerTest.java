@@ -1,7 +1,6 @@
 package com.ristify.ristifybackend.controller;
 
 import com.ristify.ristifybackend.response.Response;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.Randoms;
 import com.ristify.ristifybackend.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,12 +13,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class AbstractMessageControllerTest {
-    private AbstractMessageController sut;
+class ConcreteMessageControllerTest {
+
+    private ConcreteMessageController sut;
 
     @BeforeEach
     void beforeAbstractMessageControllerUnitTest() {
-        sut = new AbstractMessageController();
+        sut = new ConcreteMessageController();
     }
 
     @Test
