@@ -13,6 +13,8 @@ public class AppUtils {
     public static final String PAYLOAD = "payload";
     public static final String SUCCESS = "Success";
     public static final String HOST = "http://localhost:";
+    public final static String VITE_DEFAULT_HOST = "http://localhost:5173";
+
 
     public static String constructFailedToFetch(final Class<?> clazz) {
         return "Could not fetch " + clazz.getSimpleName() + "s";
