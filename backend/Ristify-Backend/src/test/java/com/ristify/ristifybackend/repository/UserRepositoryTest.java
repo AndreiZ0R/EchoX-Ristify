@@ -15,8 +15,6 @@ import java.util.Optional;
 @SpringBootTest
 @Transactional
 class UserRepositoryTest extends AbstractUnitTest<User> {
-    private static final String startTime = "1800-01-01 00:00:00";
-    private static final String endTime = "1900-01-01 00:00:00";
 
     @Autowired
     private UserRepository repository;
