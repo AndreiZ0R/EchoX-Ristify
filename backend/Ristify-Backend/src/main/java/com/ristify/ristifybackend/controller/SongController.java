@@ -2,6 +2,7 @@ package com.ristify.ristifybackend.controller;
 
 import com.ristify.ristifybackend.dto.song.SongDTO;
 import com.ristify.ristifybackend.models.Song;
+import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.service.SongService;
 import com.ristify.ristifybackend.utils.AppUtils;
@@ -46,17 +47,16 @@ public class SongController extends ConcreteMessageController {
 
     @GetMapping("/{songId}")
     public Response getSongById(@PathVariable final Integer songId) {
-        return songService.findUserById(songId)
+        return songService.findById(songId)
                 .map(this::successResponse)
                 .orElse(failureResponse(AppUtils.constructNotFoundMessage(Song.class, "id", songId), HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/name={name}")
     public Response getSongByName(@PathVariable final String name) {
-        List<SongDTO> songs = songService.findByName(name);
-        return !songs.isEmpty() ?
-               successResponse(songs) :
-               failureResponse(AppUtils.constructNotFoundMessage(Song.class, "name", name), HttpStatus.NOT_FOUND);
+        return songService.findByName(name)
+                        .map(this::successResponse)
+                        .orElse(failureResponse(AppUtils.constructNotFoundMessage(User.class, "name", name), HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/artist={artist}")
