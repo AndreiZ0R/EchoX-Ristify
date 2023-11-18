@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,7 @@ public class SongService {
         return songRepository.findAll().stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
     }
 
-    public Optional<SongDTO> findUserById(final Integer songId) {
+    public Optional<SongDTO> findById(final Integer songId) {
         return songRepository.findById(songId).map(DTOMapper::mapSongToDTO);
     }
 
@@ -38,8 +39,8 @@ public class SongService {
         return songPage.stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
     }
 
-    public List<SongDTO> findByName(final String name) {
-        return songRepository.findByName(name).stream().map(DTOMapper::mapSongToDTO).collect(Collectors.toList());
+    public Optional<SongDTO> findByName(final String name) {
+        return songRepository.findByName(name).map(DTOMapper::mapSongToDTO);
     }
 
     public List<SongDTO> findByArtist(final String artist) {
@@ -51,7 +52,9 @@ public class SongService {
     }
 
     public Optional<SongDTO> saveSong(final Song song) {
-        return Optional.of(DTOMapper.mapSongToDTO(songRepository.save(song)));
+        return Objects.nonNull(song) ?
+               Optional.of(DTOMapper.mapSongToDTO(songRepository.save(song))) :
+               Optional.empty();
     }
 
     public Optional<SongDTO> deleteSongById(final Integer id) {
