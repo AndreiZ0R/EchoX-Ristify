@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Map;
 
 public class ConcreteMessageController {
-    //TODO: handle lists empty for success / failure
-
 
     public Response successResponse(final Object body) {
         return response(body, HttpStatus.OK, AppUtils.SUCCESS);

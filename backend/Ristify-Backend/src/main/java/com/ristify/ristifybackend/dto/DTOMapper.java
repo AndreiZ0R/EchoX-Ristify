@@ -30,8 +30,8 @@ public class DTOMapper {
 
     public static FriendshipDTO mapFriendshipToDTO(final Friendship friendship) {
         return new FriendshipDTO(
-                mapUserToDTO(friendship.getUserId1()),
-                mapUserToDTO(friendship.getUserId2()),
+                mapUserToDTO(friendship.getUser1()),
+                mapUserToDTO(friendship.getUser2()),
                 friendship.getCreatedAt());
     }
 

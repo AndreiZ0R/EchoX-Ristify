@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//TODO: tests - Andrei
 @RestController
 @RequestMapping(AppUtils.usersControllerEndpoint)
 public class UserController extends ConcreteMessageController {

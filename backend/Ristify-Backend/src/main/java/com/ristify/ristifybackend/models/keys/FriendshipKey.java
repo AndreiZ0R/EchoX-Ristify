@@ -14,6 +14,6 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 public class FriendshipKey implements Serializable {
-    private Integer userId1;
-    private Integer userId2;
+    private Integer user1;
+    private Integer user2;
 }

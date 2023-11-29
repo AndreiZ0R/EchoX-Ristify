@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-//TODO: tests - Andrei
 @Service
 public class FriendshipService {
     private final FriendshipRepository friendshipRepository;
@@ -30,7 +29,7 @@ public class FriendshipService {
     }
 
     public List<FriendshipDTO> getAllFriendsForId(final Integer id) {
-        return friendshipRepository.getAllFriends(id).stream().map(DTOMapper::mapFriendshipToDTO).collect(Collectors.toList());
+        return friendshipRepository.getAllFriendsForId(id).stream().map(DTOMapper::mapFriendshipToDTO).collect(Collectors.toList());
     }
 
     public Optional<FriendshipDTO> findFriendship(final Integer id1, final Integer id2) {
@@ -39,7 +38,6 @@ public class FriendshipService {
 
     public Optional<FriendshipDTO> saveFriendship(final SaveFriendshipDTO saveFriendshipDTO) {
         List<User> foundUsers = userRepository.findMultipleById(List.of(saveFriendshipDTO.userId1(), saveFriendshipDTO.userId2()));
-
 
         return foundUsers.size() == 2 ?
                friendshipRepository.storeFriendship(saveFriendshipDTO.userId1(), saveFriendshipDTO.userId2()).map(DTOMapper::mapFriendshipToDTO) :

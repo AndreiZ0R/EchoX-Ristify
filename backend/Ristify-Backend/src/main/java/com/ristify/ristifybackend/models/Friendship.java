@@ -28,13 +28,13 @@ public class Friendship {
     @NonNull
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "user_id1", unique = true, nullable = false)
-    private User userId1;
+    private User user1;
 
     @Id
     @NonNull
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "user_id2", unique = true, nullable = false)
-    private User userId2;
+    private User user2;
 
     @NonNull
     @Column(name = "created_at", nullable = false, columnDefinition = "timestamp DEFAULT NOW()", insertable = false)

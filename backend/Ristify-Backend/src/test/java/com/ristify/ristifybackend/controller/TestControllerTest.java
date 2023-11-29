@@ -5,7 +5,6 @@ import com.ristify.ristifybackend.utils.AppHttpMethod;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-//TODO:
 public class TestControllerTest extends AbstractControllerIntegrationTest {
 
     @BeforeEach

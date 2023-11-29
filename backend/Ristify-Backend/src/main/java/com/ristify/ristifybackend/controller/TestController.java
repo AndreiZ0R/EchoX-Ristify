@@ -50,7 +50,7 @@ public class TestController extends ConcreteMessageController {
 
     @GetMapping("/users/{id}/friends")
     public Response getAllUsersFriends(@PathVariable final Integer id) {
-        return successResponse(friendshipRepository.getAllFriends(id));
+        return successResponse(friendshipRepository.getAllFriendsForId(id));
     }
 
     @GetMapping("/playlists/{id}/songs")
