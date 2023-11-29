@@ -5,20 +5,25 @@ import com.ristify.ristifybackend.dto.user.UserDTO;
 import com.ristify.ristifybackend.models.User;
 import com.ristify.ristifybackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+//TODO: tests - Andrei
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(final UserRepository userRepository) {
+    public UserService(final UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<UserDTO> getAllUsers() {
@@ -34,9 +39,13 @@ public class UserService {
     }
 
     public Optional<UserDTO> saveUser(final User user) {
-        return Objects.nonNull(user) ?
-               Optional.of(DTOMapper.mapUserToDTO(userRepository.save(user))) :
-               Optional.empty();
+        if (Objects.isNull(user)) {
+            return Optional.empty();
+        }
+
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
+        return Optional.of(DTOMapper.mapUserToDTO(userRepository.save(user)));
     }
 
     public Optional<UserDTO> deleteUserById(final Integer id) {
