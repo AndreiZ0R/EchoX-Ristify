@@ -1,6 +1,7 @@
 package com.ristify.ristifybackend.repository;
 
-import com.ristify.ristifybackend.models.User;
+import com.ristify.ristifybackend.models.user.User;
+import com.ristify.ristifybackend.repository.user.UserRepository;
 import com.ristify.ristifybackend.utils.AbstractUnitTest;
 import com.ristify.ristifybackend.utils.Randoms;
 import com.ristify.ristifybackend.utils.UserUtils;

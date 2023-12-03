@@ -1,8 +1,8 @@
 package com.ristify.ristifybackend.controller;
 
-import com.ristify.ristifybackend.repository.FriendshipRepository;
-import com.ristify.ristifybackend.repository.PlaylistSongRepository;
-import com.ristify.ristifybackend.repository.UserRepository;
+import com.ristify.ristifybackend.repository.user.FriendshipRepository;
+import com.ristify.ristifybackend.repository.playlist.PlaylistSongRepository;
+import com.ristify.ristifybackend.repository.user.UserRepository;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(AppUtils.testControllerEndpoint)
+@RequestMapping(AppUtils.TEST_CONTROLLER_ENDPOINT)
 public class TestController extends ConcreteMessageController {
     private final UserRepository userRepository;
     private final FriendshipRepository friendshipRepository;

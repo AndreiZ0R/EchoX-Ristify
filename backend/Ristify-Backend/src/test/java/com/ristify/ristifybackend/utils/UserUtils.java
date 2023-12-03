@@ -1,6 +1,7 @@
 package com.ristify.ristifybackend.utils;
 
-import com.ristify.ristifybackend.models.User;
+import com.ristify.ristifybackend.models.user.User;
+import com.ristify.ristifybackend.models.user.UserRole;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -70,6 +71,6 @@ public class UserUtils {
             final Timestamp createdAt,
             final Timestamp lastLogin,
             final Date birthDate) {
-        return new User(userId, username, password, firstName, lastName, email, country, createdAt, lastLogin, birthDate);
+        return new User(userId, username, password, firstName, lastName, email, country, createdAt, lastLogin, birthDate, UserRole.User);
     }
 }

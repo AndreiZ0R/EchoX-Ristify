@@ -1,6 +1,8 @@
 package com.ristify.ristifybackend.repository;
 
-import com.ristify.ristifybackend.models.Friendship;
+import com.ristify.ristifybackend.models.user.Friendship;
+import com.ristify.ristifybackend.repository.user.FriendshipRepository;
+import com.ristify.ristifybackend.repository.user.UserRepository;
 import com.ristify.ristifybackend.utils.AbstractUnitTest;
 import com.ristify.ristifybackend.utils.FriendshipUtils;
 import com.ristify.ristifybackend.utils.Randoms;

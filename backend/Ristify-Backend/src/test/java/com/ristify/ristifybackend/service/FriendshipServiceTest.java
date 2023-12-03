@@ -2,9 +2,10 @@ package com.ristify.ristifybackend.service;
 
 import com.ristify.ristifybackend.dto.DTOMapper;
 import com.ristify.ristifybackend.dto.friendship.FriendshipDTO;
-import com.ristify.ristifybackend.models.Friendship;
-import com.ristify.ristifybackend.repository.FriendshipRepository;
-import com.ristify.ristifybackend.repository.UserRepository;
+import com.ristify.ristifybackend.models.user.Friendship;
+import com.ristify.ristifybackend.repository.user.FriendshipRepository;
+import com.ristify.ristifybackend.repository.user.UserRepository;
+import com.ristify.ristifybackend.service.user.FriendshipService;
 import com.ristify.ristifybackend.utils.AbstractUnitTest;
 import com.ristify.ristifybackend.utils.FriendshipUtils;
 import com.ristify.ristifybackend.utils.Randoms;

@@ -6,11 +6,11 @@ import com.ristify.ristifybackend.dto.playlistsong.PlaylistSongDTO;
 import com.ristify.ristifybackend.dto.playlistsong.PlaylistWithSongsDTO;
 import com.ristify.ristifybackend.dto.song.SongDTO;
 import com.ristify.ristifybackend.dto.user.UserDTO;
-import com.ristify.ristifybackend.models.Friendship;
-import com.ristify.ristifybackend.models.Playlist;
-import com.ristify.ristifybackend.models.PlaylistSong;
-import com.ristify.ristifybackend.models.Song;
-import com.ristify.ristifybackend.models.User;
+import com.ristify.ristifybackend.models.user.Friendship;
+import com.ristify.ristifybackend.models.playlist.Playlist;
+import com.ristify.ristifybackend.models.playlist.PlaylistSong;
+import com.ristify.ristifybackend.models.playlist.Song;
+import com.ristify.ristifybackend.models.user.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

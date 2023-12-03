@@ -1,7 +1,7 @@
 package com.ristify.ristifybackend.utils;
 
-import com.ristify.ristifybackend.models.Friendship;
-import com.ristify.ristifybackend.models.User;
+import com.ristify.ristifybackend.models.user.Friendship;
+import com.ristify.ristifybackend.models.user.User;
 
 import java.sql.Timestamp;
 

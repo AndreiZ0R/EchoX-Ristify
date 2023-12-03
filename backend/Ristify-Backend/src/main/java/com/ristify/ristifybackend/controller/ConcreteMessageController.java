@@ -1,13 +1,18 @@
 package com.ristify.ristifybackend.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ristify.ristifybackend.response.BasicResponse;
 import com.ristify.ristifybackend.response.Response;
 import com.ristify.ristifybackend.utils.AppUtils;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.SneakyThrows;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 
 import java.util.Map;
 
 public class ConcreteMessageController {
+    private final static ObjectMapper objectMapper = new ObjectMapper();
 
     public Response successResponse(final Object body) {
         return response(body, HttpStatus.OK, AppUtils.SUCCESS);
@@ -56,6 +61,20 @@ public class ConcreteMessageController {
                 .withStatus(status)
                 .withBody(body)
                 .withMultipleFields(extraFields)
+                .build();
+    }
+
+    @SneakyThrows
+    public static void setServletResponse(final HttpServletResponse response, final String message, final int status) {
+        response.setContentType(AppUtils.APPLICATION_JSON);
+        response.setStatus(status);
+        response.getWriter().println(objectMapper.writeValueAsString(basicResponse(message, HttpStatus.valueOf(status))));
+    }
+
+    public static BasicResponse basicResponse(final String message, final HttpStatus status) {
+        return BasicResponse.builder()
+                .message(message)
+                .status(status)
                 .build();
     }
 }
