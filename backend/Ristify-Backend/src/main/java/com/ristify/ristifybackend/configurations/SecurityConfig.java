@@ -19,19 +19,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfiguration {
-
+public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
-
-    private static final String[] WHITE_LIST_URLS = {"/api/auth/**"};
-
+    
     @Bean
     public SecurityFilterChain securityFilterChain(final HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeCustomizer -> authorizeCustomizer
-                        .requestMatchers(WHITE_LIST_URLS).permitAll()
+                        .requestMatchers(AppUtils.WHITE_LIST_URLS).permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/songs/**").hasRole(UserRole.Artist.name())
                         .anyRequest()
                         .authenticated()

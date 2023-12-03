@@ -84,6 +84,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(final HttpServletRequest request) {
-        return request.getRequestURI().contains(AppUtils.REGISTER_ENDPOINT);
+        String path = request.getRequestURI();
+        return AppUtils.jwtFilterWhitelistedUrls.stream()
+                .anyMatch(path::contains);
     }
 }

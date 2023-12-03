@@ -25,6 +25,7 @@
         <spring-test.version>6.0.13</spring-test.version>
         <spring-security-web.version>6.1.5</spring-security-web.version>
         <spring-security-config.version>6.1.5</spring-security-config.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
     </properties>
 
     <dependencies>
@@ -110,6 +111,15 @@
             <artifactId>spring-security-config</artifactId>
             <version>${spring-security-config.version}</version>
         </dependency>
+
+        <!-- Swagger       -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
+        </dependency>
+
+
 
     </dependencies>
 
