@@ -1,10 +1,9 @@
 package com.ristify.ristifybackend.controller;
 
-import com.ristify.ristifybackend.repository.FriendshipRepository;
-import com.ristify.ristifybackend.repository.PlaylistSongRepository;
-import com.ristify.ristifybackend.repository.UserRepository;
+import com.ristify.ristifybackend.repository.user.FriendshipRepository;
+import com.ristify.ristifybackend.repository.playlist.PlaylistSongRepository;
+import com.ristify.ristifybackend.repository.user.UserRepository;
 import com.ristify.ristifybackend.response.Response;
-import com.ristify.ristifybackend.utils.AbstractMessageController;
 import com.ristify.ristifybackend.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(AppUtils.testControllerEndpoint)
-public class TestController extends AbstractMessageController {
+@RequestMapping(AppUtils.TEST_CONTROLLER_ENDPOINT)
+public class TestController extends ConcreteMessageController {
     private final UserRepository userRepository;
     private final FriendshipRepository friendshipRepository;
     private final PlaylistSongRepository playlistSongRepository;
@@ -51,7 +50,7 @@ public class TestController extends AbstractMessageController {
 
     @GetMapping("/users/{id}/friends")
     public Response getAllUsersFriends(@PathVariable final Integer id) {
-        return successResponse(friendshipRepository.getAllFriends(id));
+        return successResponse(friendshipRepository.getAllFriendsForId(id));
     }
 
     @GetMapping("/playlists/{id}/songs")
