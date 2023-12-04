@@ -46,7 +46,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         String username = usernameOptional.get();
-
         try {
             UserDetails user = userDetailsService.loadUserByUsername(username);
             if (!isAuthenticated(username) && jwtService.isValidToken(jwt, user)) {
@@ -85,7 +84,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(final HttpServletRequest request) {
         String path = request.getRequestURI();
-        return AppUtils.jwtFilterWhitelistedUrls.stream()
+        return AppUtils.JWT_FILTER_WHITELISTED_URLS.stream()
                 .anyMatch(path::contains);
     }
 }

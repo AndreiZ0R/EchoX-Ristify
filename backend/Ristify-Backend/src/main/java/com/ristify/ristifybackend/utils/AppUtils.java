@@ -35,7 +35,7 @@ public class AppUtils {
             "/swagger-ui/**",
             "/swagger-ui.html",
             "/bus/v3/api-docs/**"};
-    public final static List<String> jwtFilterWhitelistedUrls = List.of("/register", "/swagger-ui", "/v3/", "/bus");
+    public final static List<String> JWT_FILTER_WHITELISTED_URLS = List.of("/register", "/swagger-ui", "/v3/", "/bus");
 
 
     public static String constructFailedToFetch(final Class<?> clazz) {
