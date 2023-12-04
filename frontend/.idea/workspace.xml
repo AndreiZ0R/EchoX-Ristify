@@ -34,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "fix",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -75,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701674793474</updated>
       <workItem from="1701674798307" duration="144000" />
-      <workItem from="1701677962866" duration="547000" />
+      <workItem from="1701677962866" duration="616000" />
     </task>
     <servers />
   </component>
