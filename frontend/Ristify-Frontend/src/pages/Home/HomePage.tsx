@@ -18,7 +18,7 @@ export default function HomePage() {
     return (
         <>
             <div className={styles.special}>HomePage</div>
-            <Button bgColor="primary.100" _hover={{backgroundColor: "secondary.100"}} onClick={() => {
+            <Button bgColor="primary.base" _hover={{backgroundColor: "primary.lighter"}} onClick={() => {
                 const data = {username: "popaopa", password: "popaopa"};
                 mutation.mutate(data, {
                     onSuccess: () => {
@@ -28,7 +28,6 @@ export default function HomePage() {
             }}>
                 Login
             </Button>
-
 
             {
                 isLoading ?

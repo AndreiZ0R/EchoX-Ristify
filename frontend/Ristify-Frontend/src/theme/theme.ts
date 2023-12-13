@@ -2,7 +2,8 @@ import {extendTheme, theme as chakraTheme} from "@chakra-ui/react";
 
 const colors = {
     primary: {
-        100: '#2ef45f'
+        base: '#845ec2',
+        lighter: '#c493ff',
     },
     secondary: {
         100: '#7e5f2f'
