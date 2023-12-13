@@ -30,13 +30,13 @@ public class AppUtils {
 
     public final static String[] WHITE_LIST_URLS = {
             "/api/auth/**",
+            "/api/test",
             "/v3/api-docs/**",
             "/v3/api-docs.yaml",
             "/swagger-ui/**",
             "/swagger-ui.html",
             "/bus/v3/api-docs/**"};
-    public final static List<String> JWT_FILTER_WHITELISTED_URLS = List.of("/register", "/swagger-ui", "/v3/", "/bus");
-
+    public final static List<String> JWT_FILTER_WHITELISTED_URLS = List.of("/register", "/login", "/swagger-ui", "/v3/", "/bus", "/test");
 
     public static String constructFailedToFetch(final Class<?> clazz) {
         return "Could not fetch " + clazz.getSimpleName() + "s";

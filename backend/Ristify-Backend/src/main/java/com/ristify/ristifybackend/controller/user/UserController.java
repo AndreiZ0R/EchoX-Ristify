@@ -19,6 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping(AppUtils.USERS_CONTROLLER_ENDPOINT)
 @RequiredArgsConstructor
+//@CrossOrigin(origins = "*")
 public class UserController extends ConcreteMessageController {
     private final UserService userService;
 

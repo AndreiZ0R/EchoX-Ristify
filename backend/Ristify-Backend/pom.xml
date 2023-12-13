@@ -119,8 +119,6 @@
             <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
         </dependency>
 
-
-
     </dependencies>
 
     <build>

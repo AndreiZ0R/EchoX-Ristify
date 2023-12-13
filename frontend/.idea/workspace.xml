@@ -5,13 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Ristify-Frontend/src/styles/global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Ristify-Frontend/src/styles/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/configurations/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/configurations/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/configurations/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/configurations/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/dto/DTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/dto/DTOMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/dto/song/SongDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/dto/song/SongDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/dto/user/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/dto/user/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/utils/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Ristify-Backend/src/main/java/com/ristify/ristifybackend/utils/AppUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -24,27 +49,35 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2Z4IBx8ZitkcEWclpeYL3NdeAxa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "fix",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;FE-init-setup&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;21.3.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Polihack-14/frontend/ui-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;D:/Development/Programs/nvm/v21.3.0/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -53,6 +86,15 @@
         <entry key="com.haulmont.rcb.storybook" value="false" />
       </map>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\styles" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\pages\NotFound" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\pages\HomePage" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\models" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\models\Playlist" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="npm run dev" type="js.build_tools.npm">
@@ -76,6 +118,18 @@
       <updated>1701674793474</updated>
       <workItem from="1701674798307" duration="144000" />
       <workItem from="1701677962866" duration="616000" />
+      <workItem from="1701693177653" duration="7776000" />
+      <workItem from="1701722315676" duration="6425000" />
+      <workItem from="1701800730662" duration="2327000" />
+      <workItem from="1701857824025" duration="12824000" />
+      <workItem from="1701884777592" duration="2607000" />
+      <workItem from="1701982755452" duration="673000" />
+      <workItem from="1701987831709" duration="39000" />
+      <workItem from="1702050421378" duration="2073000" />
+      <workItem from="1702080434648" duration="1650000" />
+      <workItem from="1702146671907" duration="5331000" />
+      <workItem from="1702207800190" duration="505000" />
+      <workItem from="1702464064217" duration="4059000" />
     </task>
     <servers />
   </component>

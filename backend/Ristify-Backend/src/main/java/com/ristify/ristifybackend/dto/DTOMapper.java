@@ -25,7 +25,8 @@ public class DTOMapper {
                 user.getEmail(),
                 user.getCountry(),
                 user.getCreatedAt(),
-                user.getBirthDate());
+                user.getBirthDate(),
+                user.getUserRole());
     }
 
     public static FriendshipDTO mapFriendshipToDTO(final Friendship friendship) {
@@ -40,7 +41,8 @@ public class DTOMapper {
                 song.getSongId(),
                 song.getSongName(),
                 song.getArtistName(),
-                song.getAlbumName()
+                song.getAlbumName(),
+                song.getUrl()
         );
     }
 
