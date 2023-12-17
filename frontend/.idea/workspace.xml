@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" afterDir="false" />
-    </list>
+    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +109,7 @@
       <workItem from="1702080434648" duration="1650000" />
       <workItem from="1702146671907" duration="5331000" />
       <workItem from="1702207800190" duration="505000" />
-      <workItem from="1702464064217" duration="4892000" />
+      <workItem from="1702464064217" duration="5618000" />
     </task>
     <servers />
   </component>
