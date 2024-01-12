@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -24,6 +29,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2Z4IBx8ZitkcEWclpeYL3NdeAxa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,13 +42,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "fix",
+    "git-widget-placeholder": "FE-init-setup",
     "ignore.virus.scanning.warn.message": "true",
+    "javascript.nodejs.core.library.configured.version": "21.3.0",
+    "javascript.nodejs.core.library.typings.version": "20.10.3",
+    "last_opened_file_path": "D:/Polihack-14/frontend/ui-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "D:/Development/Programs/nvm/v21.3.0/node",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -53,6 +66,15 @@
         <entry key="com.haulmont.rcb.storybook" value="false" />
       </map>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\styles" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\pages\NotFound" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\pages\HomePage" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\models" />
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\models\Playlist" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="npm run dev" type="js.build_tools.npm">
@@ -76,6 +98,18 @@
       <updated>1701674793474</updated>
       <workItem from="1701674798307" duration="144000" />
       <workItem from="1701677962866" duration="616000" />
+      <workItem from="1701693177653" duration="7776000" />
+      <workItem from="1701722315676" duration="6425000" />
+      <workItem from="1701800730662" duration="2327000" />
+      <workItem from="1701857824025" duration="12824000" />
+      <workItem from="1701884777592" duration="2607000" />
+      <workItem from="1701982755452" duration="673000" />
+      <workItem from="1701987831709" duration="39000" />
+      <workItem from="1702050421378" duration="2073000" />
+      <workItem from="1702080434648" duration="1650000" />
+      <workItem from="1702146671907" duration="5331000" />
+      <workItem from="1702207800190" duration="505000" />
+      <workItem from="1702464064217" duration="5618000" />
     </task>
     <servers />
   </component>

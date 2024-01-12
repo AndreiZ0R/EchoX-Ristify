@@ -30,7 +30,7 @@ public class ApplicationConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(@NonNull final CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins(AppUtils.VITE_DEFAULT_HOST);
+                registry.addMapping("/**").allowedOrigins("*").allowedHeaders("*");
             }
         };
     }
