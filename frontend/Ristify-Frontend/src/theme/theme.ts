@@ -7,7 +7,12 @@ const colors = {
     },
     secondary: {
         100: '#7e5f2f'
-    }
+    },
+    background:{
+        base: '#242424',
+        darker: '#131313',
+        light: '#EFEFEF'
+    },
 }
 
 const fonts = {

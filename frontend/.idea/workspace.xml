@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="" />
+    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/hooks/CustomHooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/hooks/CustomHooks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/models/Playlist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/models/Playlist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -42,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "FE-init-setup",
+    "git-widget-placeholder": "FE-homepage",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "21.3.0",
     "javascript.nodejs.core.library.typings.version": "20.10.3",
@@ -58,6 +68,9 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactBuddySettings">
+    <option name="extensionsIgnore" value="true" />
+  </component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -110,6 +123,7 @@
       <workItem from="1702146671907" duration="5331000" />
       <workItem from="1702207800190" duration="505000" />
       <workItem from="1702464064217" duration="5618000" />
+      <workItem from="1705098106606" duration="17973000" />
     </task>
     <servers />
   </component>

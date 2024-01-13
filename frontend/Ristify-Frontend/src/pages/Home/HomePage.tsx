@@ -1,67 +1,62 @@
-import {User} from "../../models/User.ts";
-import {CSSProperties} from "react";
-import styles from "./HomePage.module.scss"
-import {useCustomQuery, useLogin} from "../../hooks/CustomHooks.ts";
-import {Queries} from "../../constants/constants.ts";
-import {retrieveUsers} from "../../api/Api.ts";
-import {Button} from '@chakra-ui/react'
+import "./HomePage.scss"
+import Footer from "../../components/Footer/Footer.tsx";
+import {Box} from "@chakra-ui/react";
+import {useMediaController} from "../../hooks/CustomHooks.ts";
 
 export default function HomePage() {
+    const {mediaController, onBack, onSkip} = useMediaController();
+    // const mockSong: Song = {
+    //     songName: "Humble",
+    //     artistName: "Kendrick Lamar",
+    //     songId: 2,
+    //     url: "",
+    //     albumName: "StayStrongKid"
+    // }
+    //
+    // const [songProgress, setSongProgress] = useState<number>(0);
+    // const [playing, setPlaying] = useState<boolean>(false);
+    //
+    // useEffect(() => {
+    //     if (playing) {
+    //         const timeout = setTimeout(() => {
+    //             setSongProgress(songProgress + 1);
+    //         }, 1000)
+    //         return () => {
+    //             clearTimeout(timeout);
+    //         }
+    //     }
+    // }, [songProgress, playing]);
+    // const onSongSlide = (newProgress: number): void => {
+    //     setSongProgress(newProgress);
+    // }
+    //
+    // const onPlay = () => {
+    //     setPlaying(true);
+    // }
+    // const onPause = () => {
+    //     setPlaying(false)
+    // }
 
-    const mutation = useLogin();
-    // const {data: users, error, isLoading, setEnabledQuery} = useFetchUsers(false);
+    return (<>
+        <Box w="100vw" h="100vh" display="flex" alignItems="flex-start" justifyContent="space-between" flexDirection="column">
+            {/* main */}
+            <Box w="full" h="full" bgColor="background.darker" display="flex" flexDirection="row" gap={2} p={2}>
+                {/**/}
+                <Box h="full" w="25%" bgColor="background.base" rounded="lg">
+                </Box>
 
-    const {data: users, error, isLoading, setEnabledQuery} =
-        useCustomQuery<User[]>(Queries.USERS, retrieveUsers, false);
+                <Box h="full" w="50%" bgColor="background.base" rounded="lg">
+                </Box>
 
-
-    return (
-        <>
-            <div className={styles.special}>HomePage</div>
-            <Button bgColor="primary.base" _hover={{backgroundColor: "primary.lighter"}} onClick={() => {
-                const data = {username: "popaopa", password: "popaopa"};
-                mutation.mutate(data, {
-                    onSuccess: () => {
-                        setEnabledQuery(true);
-                    }
-                });
-            }}>
-                Login
-            </Button>
-
-            {
-                isLoading ?
-                    <div>Loading users...</div> :
-                    error ? <>Error fetching users...</> : users?.map((user: User) => <UserCard user={user}/>)
-            }
-        </>
-    )
+                <Box h="full" w="25%" bgColor="background.base" rounded="lg">
+                </Box>
+            </Box>
+            {/**/}
+            {/* play navigation */}
+            <Footer mediaController={mediaController} onBack={onBack} onSkip={onSkip}/>
+        </Box>
+    </>)
 }
 
-type UserProps = {
-    user: User
-}
 
-function UserCard({user}: UserProps) {
 
-    const inlineStyle: CSSProperties = {
-        padding: "10px 12px",
-        backgroundColor: "olive",
-        borderRadius: "15px",
-        marginTop: "10px",
-        marginRight: "10px",
-        display: "inline-flex",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        flexDirection: "column",
-    }
-
-    return (
-        <>
-            <div style={inlineStyle}>
-                <span className={styles.userText}>{user.username}</span>
-                <span>{user.email}</span>
-            </div>
-        </>
-    )
-}

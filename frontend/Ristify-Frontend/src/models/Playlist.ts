@@ -19,9 +19,23 @@ export interface PlaylistWithSongs extends Model {
 }
 
 export interface Song extends Model {
-    songId: bigint,
+    songId: bigint | number,
     songName: string,
     artistName: string,
     albumName: string,
+    duration: number,
+    imageUrl: string,
     url: string
+}
+
+//TODO: get some work here, lastSong should be lastSongs, also have a list for next songs for better ux
+export interface MediaController {
+    currentSong: Song,
+    lastSong: Song,
+    nextSong: Song,
+    songProgress: number,
+    onSliderChange: (value: number) => void,
+    playing: boolean,
+    onPause: () => void,
+    onPlay: () => void,
 }
