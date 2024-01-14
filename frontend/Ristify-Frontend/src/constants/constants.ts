@@ -5,6 +5,7 @@ export const Constants = {
 
 export const Queries = {
     USERS: "users",
+    PLAYLISTS_WITH_SONGS: "playlistsWithSongs",
     LOGIN: "login",
     REGISTER: "register",
     TOKEN: "token"

@@ -1,9 +1,11 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
-import {ListResponse, SingleResponse} from "../models/Response.ts";
+import {ListResponse, Model, SingleResponse} from "../models/Response.ts";
 import {Constants, Queries} from "../constants/constants.ts";
 
 const base: string = "/api";
 const usersEndpoint: string = `${base}/users`;
+const playlistsEndpoint: string = `${base}/playlists`;
+const playlistSongsEndpoint: string = `${base}/playlistSongs`;
 const authEndpoint: string = `${base}/auth`;
 
 const buildAuthConfig = (): AxiosRequestConfig => {
@@ -15,9 +17,13 @@ const buildAuthConfig = (): AxiosRequestConfig => {
     };
 }
 
-const retrieveUsers = (): Promise<ListResponse> =>
-    axios.get<ListResponse>(usersEndpoint, buildAuthConfig()).then((res: AxiosResponse<ListResponse>) => res.data);
+const retrieveFunction = <T extends Model>(endpoint: string): Promise<T> =>
+    axios.get<T>(endpoint, buildAuthConfig()).then((res: AxiosResponse<T>) => res.data);
 
+
+//TODO: maybe generify this
+// const retrieveUsers = (): Promise<ListResponse> =>
+//     axios.get<ListResponse>(usersEndpoint, buildAuthConfig()).then((res: AxiosResponse<ListResponse>) => res.data);
 
 const login = (username: string, password: string): Promise<SingleResponse> =>
     axios.post(`${authEndpoint}/login`, {
@@ -25,4 +31,8 @@ const login = (username: string, password: string): Promise<SingleResponse> =>
         password: password
     }).then((res: AxiosResponse<SingleResponse>): SingleResponse => res.data);
 
-export {retrieveUsers, login}
+const retrieveUsers = (): Promise<ListResponse> => retrieveFunction<ListResponse>(usersEndpoint);
+const retrievePlaylists = (): Promise<ListResponse> => retrieveFunction<ListResponse>(playlistsEndpoint);
+const retrievePlaylistsWithSongs = (): Promise<ListResponse> => retrieveFunction<ListResponse>(playlistSongsEndpoint);
+
+export {retrieveUsers, retrievePlaylists, retrievePlaylistsWithSongs, login}

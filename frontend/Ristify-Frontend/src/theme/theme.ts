@@ -11,6 +11,9 @@ const colors = {
     background:{
         base: '#242424',
         darker: '#131313',
+        accentDark: '#2d2d2d',
+        hover: '#343434',
+        dark100: '#444444',
         light: '#EFEFEF'
     },
 }

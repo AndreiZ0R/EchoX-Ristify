@@ -25,7 +25,7 @@ export interface Song extends Model {
     albumName: string,
     duration: number,
     imageUrl: string,
-    url: string
+    url: string,
 }
 
 //TODO: get some work here, lastSong should be lastSongs, also have a list for next songs for better ux
@@ -34,8 +34,11 @@ export interface MediaController {
     lastSong: Song,
     nextSong: Song,
     songProgress: number,
+    volume: number,
     onSliderChange: (value: number) => void,
+    onVolumeChange: (value: number) => void,
     playing: boolean,
     onPause: () => void,
     onPlay: () => void,
+    audioRef?: any,
 }
