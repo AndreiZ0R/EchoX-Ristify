@@ -1,6 +1,6 @@
 import {Model} from "./Response.ts";
 
-type UserRole = "User" | "Artist";
+export type UserRole = "User" | "Artist";
 
 export interface User extends Model {
     userId: bigint,
