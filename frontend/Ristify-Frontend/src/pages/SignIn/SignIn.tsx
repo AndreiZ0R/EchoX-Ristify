@@ -1,25 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useFormik} from "formik";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import * as Yup from 'yup';
-import {
-    Button,
-    Flex,
-    VStack,
-    Heading,
-    Image,
-    Link,
-    Box,
-    IconButton,
-    Radio,
-    RadioGroup,
-    Stack, Text
-} from "@chakra-ui/react";
+import {Box, Button, Flex, Heading, IconButton, Image, Link, Radio, RadioGroup, Stack, Text, VStack} from "@chakra-ui/react";
 import CustomInput from "../../components/CustomInput/CustomInput.tsx";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker.tsx";
 import CountrySelect from "../../components/CountrySelect/CountrySelect";
-import {BiChevronRightCircle, BiChevronLeftCircle} from "react-icons/bi";
+import {BiChevronLeftCircle, BiChevronRightCircle} from "react-icons/bi";
 import {useRegister} from "../../hooks/CustomHooks.ts";
+import {LoginModel, User} from "../../models/User.ts";
 
 const SignIn = () => {
     const [step, setStep] = useState(1);
@@ -39,7 +28,7 @@ const SignIn = () => {
     const [isEmailValid, setIsEmailValid] = useState(false);
     const [isPasswordValid, setIsPasswordValid] = useState(false);
     const navigate = useNavigate();
-    const register = useRegister();
+    const {mutate: register} = useRegister();
 
     const formik = useFormik({
         initialValues: {
@@ -75,9 +64,11 @@ const SignIn = () => {
                 role: values.role,
                 password: values.password,
             }
-            register.mutate(registerValues, {
-                onSuccess: () => {
-                    navigate("/home")
+
+            register(registerValues, {
+                onSuccess: (res) => {
+                    const user: User = (res.payload as LoginModel).user;
+                    navigate("/home", {state: {user}});
                 }
             });
         }
@@ -88,7 +79,7 @@ const SignIn = () => {
     const goToPreviousStep = () => setStep(step - 1);
     const isLastStep = step === totalSteps;
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIsUsernameValid(!formik.errors.username && fieldTouched.username);
         setIsEmailValid(!formik.errors.email && fieldTouched.email);
         setIsPasswordValid(!formik.errors.password && fieldTouched.password);
@@ -105,22 +96,22 @@ const SignIn = () => {
         >
             {/*login card*/}
             <Box
-                h={{lg:"75%", md:"75%", sm:"full", base:"full"}}
-                w={{lg:"75%", md:"75%", sm:"full", base:"full"}}
+                h={{lg: "90%", md: "90%", sm: "full", base: "full"}}
+                w={{lg: "75%", md: "75%", sm: "full", base: "full"}}
                 bg="background.darker"
                 boxShadow="0 0 25px 15px rgba(0, 0, 0, 0.35)"
-                rounded={{lg:"3xl", md:"3xl", sm:"0",base:"0"}}
+                rounded={{lg: "3xl", md: "3xl", sm: "0", base: "0"}}
                 // direction={{base: "column", md: "row"}}
                 display="flex"
-                flexDirection={{lg: "row", md:"row", sm:"column", base:"column"}}
+                flexDirection={{lg: "row", md: "row", sm: "column", base: "column"}}
             >
 
                 {/* left img */}
                 <Box
                     bg="background.base"
                     // w={{base: "auto", md: "50%"}}
-                    h={{lg:"full", md:"full", sm: "30%", base:"30%"}}
-                    w={{lg:"50%", md:"50%", sm: "full", base:"full"}}
+                    h={{lg: "full", md: "full", sm: "30%", base: "30%"}}
+                    w={{lg: "50%", md: "50%", sm: "full", base: "full"}}
                     // direction="column"
                     // align="center"
                     // justify="center"
@@ -138,11 +129,10 @@ const SignIn = () => {
                 {/* signing part */}
                 <Box
                     h="full"
-                    w={{lg:"50%", md:"50%", sm: "full", base:"full"}}
+                    w={{lg: "50%", md: "50%", sm: "full", base: "full"}}
                 >
 
                     <Flex
-                        border="1px solid red"
                         h="full"
                         w="full"
                         bg="background.darker"
@@ -152,20 +142,20 @@ const SignIn = () => {
                         rounded="3xl"
                         p={5}
                     >
-                    <VStack spacing={2} align="center" w="100%" h="full">
-                        <Heading
-                            as="h2"
-                            size="xl"
-                            textColor="background.light"
-                            sx={{
-                                userSelect: 'none',
-                                pointerEvents: 'none',
-                                textDecoration: 'none'
-                            }}
-                        >
-                            Create an account
-                        </Heading>
-                        <Heading as="h3" size="md" textColor="primary.base" pb={2}>
+                        <VStack spacing={2} align="center" w="100%" h="full">
+                            <Heading
+                                as="h2"
+                                size="2xl"
+                                textColor="background.light"
+                                sx={{
+                                    userSelect: 'none',
+                                    pointerEvents: 'none',
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                Create an account
+                            </Heading>
+                            <Heading as="h3" size="md" textColor="primary.base" pb={2} mb={2}>
                             <span
                                 style={{
                                     userSelect: 'none',
@@ -175,19 +165,19 @@ const SignIn = () => {
                             >
                                 Already have an account?{' '}
                             </span>
-                            <Link
-                                color="primary.lighter"
-                                href="/"
-                                _hover={{textDecoration: 'none', color: "primary.base"}}
-                            >
-                                Login
-                            </Link>
-                        </Heading>
+                                <Link
+                                    color="primary.lighter"
+                                    href="/"
+                                    _hover={{textDecoration: 'none', color: "primary.base"}}
+                                >
+                                    Login
+                                </Link>
+                            </Heading>
 
-                        <form onSubmit={formik.handleSubmit}>
+                            <form onSubmit={formik.handleSubmit}>
                                 {/*step 1*/}
                                 {step === 1 && (
-                                    <Flex  w="full" h="full" direction="column" gap={2}>
+                                    <Flex w="full" h="full" direction="column" gap={2}>
                                         <Flex
                                             direction="column"
                                             alignContent="center"
@@ -277,10 +267,10 @@ const SignIn = () => {
                                         >
                                             <Stack direction="row">
                                                 <Radio value="User" size="md" colorScheme="primary.base">
-                                                    <span style={{ color: '#845ec2', fontSize: '18px' }}>User</span>
+                                                    <span style={{color: '#845ec2', fontSize: '18px'}}>User</span>
                                                 </Radio>
                                                 <Radio value="UserRole" size="md" colorScheme="primary.base">
-                                                    <span style={{ color: '#845ec2', fontSize: '18px' }}>UserRole</span>
+                                                    <span style={{color: '#845ec2', fontSize: '18px'}}>UserRole</span>
                                                 </Radio>
                                             </Stack>
                                         </RadioGroup>
@@ -290,7 +280,6 @@ const SignIn = () => {
                                 {step === 2 && (
                                     <>
                                         <Flex
-                                            border="1px solid green"
                                             direction="column"
                                             alignContent="center"
                                         >
@@ -450,8 +439,7 @@ const SignIn = () => {
                                     )}
                                 </Flex>
                             </form>
-                    </VStack>
-
+                        </VStack>
 
 
                     </Flex>

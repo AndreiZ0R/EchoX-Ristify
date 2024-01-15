@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/api/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/components/CustomInput/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/components/CustomInput/CustomInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/components/Footer/CustomFooter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/hooks/CustomHooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/hooks/CustomHooks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/LogIn/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/LogIn/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/SignIn/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/SignIn/SignIn.tsx" afterDir="false" />
@@ -131,6 +125,8 @@
       <workItem from="1705098106606" duration="18060000" />
       <workItem from="1705154778494" duration="31705000" />
       <workItem from="1705252092124" duration="24044000" />
+      <workItem from="1705299918662" duration="128000" />
+      <workItem from="1705303766815" duration="1169000" />
     </task>
     <servers />
   </component>

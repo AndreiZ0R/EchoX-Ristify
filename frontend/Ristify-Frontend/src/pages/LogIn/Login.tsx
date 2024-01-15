@@ -14,7 +14,7 @@ const Login = () => {
         password: false,
     });
     const navigate = useNavigate();
-    const {data: loggedUser, mutate: login, isSuccess} = useLogin();
+    const {mutate: login} = useLogin();
 
     const formik = useFormik({
         initialValues: {
@@ -22,12 +22,12 @@ const Login = () => {
             password: '',
         },
         onSubmit: (values) => {
-            login(values);
-            if (isSuccess) {
-
-                const user: User = (loggedUser.payload as LoginModel).user;
-                navigate("/home", {state: {user}});
-            }
+            login(values, {
+                onSuccess: (res) => {
+                    const user: User = (res.payload as LoginModel).user;
+                    navigate("/home", {state: {user}});
+                }
+            });
         }
     });
 
@@ -43,22 +43,22 @@ const Login = () => {
 
             {/*login card*/}
             <Box
-                h={{lg:"75%", md:"75%", sm:"full", base:"full"}}
-                w={{lg:"75%", md:"75%", sm:"full", base:"full"}}
+                h={{lg: "90%", md: "90%", sm: "full", base: "full"}}
+                w={{lg: "75%", md: "75%", sm: "full", base: "full"}}
                 bg="background.darker"
                 boxShadow="0 0 25px 15px rgba(0, 0, 0, 0.35)"
-                rounded={{lg:"3xl", md:"3xl", sm:"0",base:"0"}}
+                rounded={{lg: "3xl", md: "3xl", sm: "0", base: "0"}}
                 // direction={{base: "column", md: "row"}}
                 display="flex"
-                flexDirection={{lg: "row", md:"row", sm:"column", base:"column"}}
+                flexDirection={{lg: "row", md: "row", sm: "column", base: "column"}}
             >
 
                 {/* left with pic*/}
                 <Box
                     bg="background.base"
                     // w={{base: "auto", md: "50%"}}
-                    h={{lg:"full", md:"full", sm: "30%", base:"30%"}}
-                    w={{lg:"50%", md:"50%", sm: "full", base:"full"}}
+                    h={{lg: "full", md: "full", sm: "30%", base: "30%"}}
+                    w={{lg: "50%", md: "50%", sm: "full", base: "full"}}
                     // direction="column"
                     // align="center"
                     // justify="center"
@@ -76,7 +76,7 @@ const Login = () => {
                 {/*right box*/}
                 <Box
                     h="full"
-                    w={{lg:"50%", md:"50%", sm: "full", base:"full"}}
+                    w={{lg: "50%", md: "50%", sm: "full", base: "full"}}
                 >
                     <Flex
                         h="full"

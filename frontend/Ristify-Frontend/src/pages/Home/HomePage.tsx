@@ -13,7 +13,7 @@ import {LuPlus} from "react-icons/lu";
 import {SearchIcon} from "@chakra-ui/icons";
 import {RiPlayCircleFill} from "react-icons/ri";
 import CustomFooter from "../../components/Footer/CustomFooter.tsx";
-import {LoginModel, User} from "../../models/User.ts";
+import {User} from "../../models/User.ts";
 import {useLocation} from "react-router-dom";
 
 enum PanelType { HOME, PROFILE, LIBRARY}
@@ -30,7 +30,6 @@ interface Filter {
 }
 
 //TODO: fetch playlists & songs & populate
-
 
 
 export default function HomePage() {
@@ -129,7 +128,7 @@ export default function HomePage() {
             {/* welcome text */}
             <Box mt={4} mb={4}>
                 <Text color="background.light" fontSize="3rem" fontWeight="bold">Hello,
-                     <Text color="primary.base" display="inline">{user?.username}</Text>
+                    <Text color="primary.base" display="inline">{user?.username}</Text>
                 </Text>
                 <Text color="gray">Welcome back.</Text>
             </Box>

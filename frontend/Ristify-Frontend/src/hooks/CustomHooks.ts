@@ -60,10 +60,12 @@ const useLogin = () => {
 
             return queryClient.invalidateQueries(Queries.USERS);
         }
-    })
+    });
 }
 
 const useRegister = () => {
+    const queryClient: QueryClient = useQueryClient();
+
     return useMutation({
         mutationKey: Queries.REGISTER,
         mutationFn: ({username, email, password, role, firstName, lastName, country, birthDate, createdAt}: RegisterUser) => register(username,
@@ -71,8 +73,10 @@ const useRegister = () => {
         onSuccess: (data: SingleResponse) => {
             const token: string = (data.payload as LoginModel).token;
             localStorage.setItem(Queries.TOKEN, token);
+
+            return queryClient.invalidateQueries(Queries.USERS);
         }
-    })
+    });
 }
 
 
