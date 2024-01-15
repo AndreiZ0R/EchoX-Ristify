@@ -9,10 +9,24 @@ import {MediaController, Song} from "../models/Playlist.ts";
 import ferrariSong from "../assets/ferrari.mp3"
 import humbleSong from "../assets/humble.mp3"
 import horseSong from "../assets/darkHorse.mp3"
+import {login, register} from "../api/Api.ts";
+import {useState} from "react";
 
 type LoginUser = {
     username: string,
     password: string
+}
+
+type RegisterUser = {
+    username: string,
+    email: string,
+    password: string,
+    role: string,
+    firstName: string,
+    lastName: string,
+    country: string,
+    birthDate: Date,
+    createdAt: Date,
 }
 
 type TransformerFunction = <T extends Model>(response: AppResponse) => T;
@@ -48,6 +62,17 @@ const useLogin = () => {
 
             return queryClient.invalidateQueries(Queries.USERS);
         }
+    })
+}
+
+const useRegister = () => {
+    return useMutation({
+        mutationKey: Queries.REGISTER,
+        mutationFn: ({username, email, password, role, firstName, lastName, country, birthDate, createdAt}: RegisterUser) => register(username,
+            email, password, role, firstName, lastName, country, birthDate, createdAt),
+        onSuccess: (data: SingleResponse) => {
+            const token: string = (data.payload as LoginModel).token;
+            localStorage.setItem(Queries.TOKEN, token);        }
     })
 }
 
@@ -182,4 +207,4 @@ const useMediaController = () => {
     return {mediaController, onBack, onSkip};
 }
 
-export {useCustomQuery, useLogin, useMediaController}
+export {useCustomQuery, useLogin, useMediaController, useRegister}
