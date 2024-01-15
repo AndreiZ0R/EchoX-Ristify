@@ -1,25 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useFormik} from "formik";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import * as Yup from 'yup';
-import {
-    Button,
-    Flex,
-    VStack,
-    Heading,
-    Image,
-    Link,
-    Box,
-    IconButton,
-    Radio,
-    RadioGroup,
-    Stack
-} from "@chakra-ui/react";
+import {Box, Button, Flex, Heading, IconButton, Image, Link, Radio, RadioGroup, Stack, Text, VStack} from "@chakra-ui/react";
 import CustomInput from "../../components/CustomInput/CustomInput.tsx";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker.tsx";
 import CountrySelect from "../../components/CountrySelect/CountrySelect";
-import {BiChevronRightCircle, BiChevronLeftCircle} from "react-icons/bi";
+import {BiChevronLeftCircle, BiChevronRightCircle} from "react-icons/bi";
 import {useRegister} from "../../hooks/CustomHooks.ts";
+import {LoginModel, User} from "../../models/User.ts";
 
 const SignIn = () => {
     const [step, setStep] = useState(1);
@@ -39,7 +28,7 @@ const SignIn = () => {
     const [isEmailValid, setIsEmailValid] = useState(false);
     const [isPasswordValid, setIsPasswordValid] = useState(false);
     const navigate = useNavigate();
-    const register = useRegister();
+    const {mutate: register} = useRegister();
 
     const formik = useFormik({
         initialValues: {
@@ -75,9 +64,11 @@ const SignIn = () => {
                 role: values.role,
                 password: values.password,
             }
-            register.mutate(registerValues, {
-                onSuccess: () => {
-                    navigate("/home")
+
+            register(registerValues, {
+                onSuccess: (res) => {
+                    const user: User = (res.payload as LoginModel).user;
+                    navigate("/home", {state: {user}});
                 }
             });
         }
@@ -88,71 +79,83 @@ const SignIn = () => {
     const goToPreviousStep = () => setStep(step - 1);
     const isLastStep = step === totalSteps;
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIsUsernameValid(!formik.errors.username && fieldTouched.username);
         setIsEmailValid(!formik.errors.email && fieldTouched.email);
         setIsPasswordValid(!formik.errors.password && fieldTouched.password);
     }, [formik.isValid, formik.dirty]);
 
     return (
+        // wrapper
         <Box
             display="flex"
             alignItems="center"
             justifyContent="center"
             bgGradient="linear(to-b, #845ec2, #c493ff, #242424)"
             h="100vh"
-            overflow="auto"
         >
-            <Flex
-                h="75%"
-                w="75%"
+            {/*login card*/}
+            <Box
+                h={{lg: "90%", md: "90%", sm: "full", base: "full"}}
+                w={{lg: "75%", md: "75%", sm: "full", base: "full"}}
                 bg="background.darker"
                 boxShadow="0 0 25px 15px rgba(0, 0, 0, 0.35)"
-                rounded="3xl"
-                direction={{base: "column", md: "row"}}
-                gap={6}
+                rounded={{lg: "3xl", md: "3xl", sm: "0", base: "0"}}
+                // direction={{base: "column", md: "row"}}
+                display="flex"
+                flexDirection={{lg: "row", md: "row", sm: "column", base: "column"}}
             >
-                <Flex
+
+                {/* left img */}
+                <Box
                     bg="background.base"
-                    w={{base: "auto", md: "50%"}}
-                    h="100%"
-                    direction="column"
-                    align="center"
-                    justify="center"
+                    // w={{base: "auto", md: "50%"}}
+                    h={{lg: "full", md: "full", sm: "30%", base: "30%"}}
+                    w={{lg: "50%", md: "50%", sm: "full", base: "full"}}
+                    // direction="column"
+                    // align="center"
+                    // justify="center"
                     rounded="3xl"
                 >
                     <Image
                         src="../../assets/auth_back.jpg"
-                        objectFit="cover"
+                        fit="cover"
                         w="100%"
                         h="100%"
                         rounded="3xl"
                     />
-                </Flex>
-                <Flex
-                    h="75%"
-                    bg="background.darker"
-                    align="center"
-                    p={4}
-                    direction="column"
-                    rounded="3xl"
-                    pl={100}
+                </Box>
+
+                {/* signing part */}
+                <Box
+                    h="full"
+                    w={{lg: "50%", md: "50%", sm: "full", base: "full"}}
                 >
-                    <VStack spacing={4} align="center" w="100%">
-                        <Heading
-                            as="h2"
-                            size="4xl"
-                            textColor="background.light"
-                            pt={30}
-                            sx={{
-                                userSelect: 'none',
-                                pointerEvents: 'none',
-                                textDecoration: 'none'
-                            }}
-                        >
-                            Create an account
-                        </Heading>
-                        <Heading as="h3" size="lg" textColor="primary.base" pb={10}>
+
+                    <Flex
+                        h="full"
+                        w="full"
+                        bg="background.darker"
+                        align="center"
+                        justify="center"
+                        direction="column"
+                        rounded="3xl"
+                        p={5}
+                    >
+                        <VStack spacing={2} align="center" w="100%" h="full">
+                            <Heading
+                                as="h2"
+                                size="2xl"
+                                textColor="background.light"
+                                sx={{
+                                    userSelect: 'none',
+                                    pointerEvents: 'none',
+                                    textDecoration: 'none'
+                                }}
+                            >
+                                Create an account
+                            </Heading>
+                            <Heading as="h3" size="md" textColor="primary.base" pb={2} mb={2}>
                             <span
                                 style={{
                                     userSelect: 'none',
@@ -162,22 +165,19 @@ const SignIn = () => {
                             >
                                 Already have an account?{' '}
                             </span>
-                            <Link
-                                color="primary.lighter"
-                                href="/"
-                                _hover={{textDecoration: 'none', color: "primary.base"}}
-                            >
-                                Login
-                            </Link>
-                        </Heading>
-                        <Flex
-                            w={{base: "auto", md: "80%"}}
-                            h="80%"
-                            direction="column"
-                        >
+                                <Link
+                                    color="primary.lighter"
+                                    href="/"
+                                    _hover={{textDecoration: 'none', color: "primary.base"}}
+                                >
+                                    Login
+                                </Link>
+                            </Heading>
+
                             <form onSubmit={formik.handleSubmit}>
+                                {/*step 1*/}
                                 {step === 1 && (
-                                    <>
+                                    <Flex w="full" h="full" direction="column" gap={2}>
                                         <Flex
                                             direction="column"
                                             alignContent="center"
@@ -264,20 +264,18 @@ const SignIn = () => {
                                             name="role"
                                             onChange={value => formik.setFieldValue('role', value)}
                                             value={formik.values.role}
-                                            mb={20}
-                                            mt={15}
                                         >
                                             <Stack direction="row">
-                                                <Radio value="User" size="lg" colorScheme="primary.base">
-                                                    <span style={{ color: '#845ec2', fontSize: '18px' }}>User</span>
+                                                <Radio value="User" size="md" colorScheme="primary.base">
+                                                    <span style={{color: '#845ec2', fontSize: '18px'}}>User</span>
                                                 </Radio>
-                                                <Radio value="UserRole" size="lg" colorScheme="primary.base">
-                                                    <span style={{ color: '#845ec2', fontSize: '18px' }}>UserRole</span>
+                                                <Radio value="UserRole" size="md" colorScheme="primary.base">
+                                                    <span style={{color: '#845ec2', fontSize: '18px'}}>Artist</span>
                                                 </Radio>
                                             </Stack>
                                         </RadioGroup>
 
-                                    </>
+                                    </Flex>
                                 )}
                                 {step === 2 && (
                                     <>
@@ -286,11 +284,11 @@ const SignIn = () => {
                                             alignContent="center"
                                         >
                                             {formik.errors.firstName && fieldTouched.firstName && (
-                                                <div style={{color: 'red'}}>{formik.errors.firstName}</div>
+                                                <Text fontSize="12px" style={{color: 'red'}}>{formik.errors.firstName}</Text>
                                             )}
                                             <CustomInput
                                                 label="First Name"
-                                                size="lg"
+                                                size="md"
                                                 borderRadius="lg"
                                                 type="firstName"
                                                 name="firstName"
@@ -313,7 +311,7 @@ const SignIn = () => {
                                             alignContent="center"
                                         >
                                             {formik.errors.lastName && fieldTouched.lastName && (
-                                                <div style={{color: 'red'}}>{formik.errors.lastName}</div>
+                                                <Text fontSize="12px" style={{color: 'red'}}>{formik.errors.lastName}</Text>
                                             )}
                                             <CustomInput
                                                 label="Last Name"
@@ -331,7 +329,7 @@ const SignIn = () => {
                                                 focusBoxShadow="0 0 0 3px rgba(66, 153, 225, 0.6)"
                                                 placeholderStyle={{color: 'gray.400', fontSize: '2rem'}}
                                                 width="100%"
-                                                fontSize="xl"
+                                                fontSize="md"
                                                 fontFamily="fonts.body"
                                             />
                                         </Flex>
@@ -340,11 +338,11 @@ const SignIn = () => {
                                             alignContent="center"
                                         >
                                             {formik.errors.country && fieldTouched.country && (
-                                                <div style={{color: 'red'}}>{formik.errors.country}</div>
+                                                <Text fontSize="12px" style={{color: 'red'}}>{formik.errors.country}</Text>
                                             )}
                                             <CountrySelect
                                                 label="Country"
-                                                size="lg"
+                                                size="md"
                                                 borderRadius="lg"
                                                 onChange={formik.handleChange}
                                                 onBlur={() => setFieldTouched({...fieldTouched, country: true})}
@@ -386,7 +384,7 @@ const SignIn = () => {
                                             _hover={{backgroundColor: "primary.lighter"}}
                                             width="full"
                                             type="submit"
-                                            mt={30}
+                                            mt={5}
                                             fontSize="xl"
                                             onClick={() => {
                                                 formik.handleSubmit();
@@ -405,9 +403,9 @@ const SignIn = () => {
                                             width="full"
                                             type="submit"
                                             size="lg"
-                                            mt={30}
-                                            ml={20}
-                                            w="250%"
+                                            mt={5}
+                                            ml={5}
+                                            w="250px"
                                             fontSize="xl"
                                             disabled={!formik.isValid}
                                         >
@@ -420,7 +418,7 @@ const SignIn = () => {
                                             _hover={{backgroundColor: "primary.lighter"}}
                                             width="full"
                                             type="submit"
-                                            size="lg"
+                                            size="md"
                                             fontSize="xl"
                                             icon={<BiChevronRightCircle/>}
                                             aria-label={isLastStep ? "Sign In" : "Next"}
@@ -441,10 +439,13 @@ const SignIn = () => {
                                     )}
                                 </Flex>
                             </form>
-                        </Flex>
-                    </VStack>
-                </Flex>
-            </Flex>
+                        </VStack>
+
+
+                    </Flex>
+
+                </Box>
+            </Box>
         </Box>
     );
 }

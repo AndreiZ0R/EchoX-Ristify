@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/SignIn/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/SignIn/SignIn.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,17 +15,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="develop" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -50,28 +38,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "FE-Sign-In-And-Sign__Up-Page",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "21.3.0",
-    "javascript.nodejs.core.library.typings.version": "20.10.3",
-    "last_opened_file_path": "D:/Polihack-14/frontend/ui-project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "D:/Development/Programs/nvm/v21.3.0/node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\bilde\\OneDrive\\Desktop\\Stuffs\\Anul3\\IS\\EchoX-Ristify\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;FE-homepage&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;21.3.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Facultate/An 3/Sem_1/Inginerie Software (IS)/Proiect/EchoX-Ristify/frontend/Ristify-Frontend/src/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;D:/Development/Programs/nvm/v21.3.0/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="ReactBuddySettings">
+    <option name="extensionsIgnore" value="true" />
+  </component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -82,12 +73,15 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\assets" />
       <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\styles" />
       <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\pages\NotFound" />
       <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\pages\HomePage" />
       <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\models" />
-      <recent name="D:\Facultate\An 3\Sem_1\Inginerie Software (IS)\Proiect\EchoX-Ristify\frontend\Ristify-Frontend\src\models\Playlist" />
     </key>
   </component>
   <component name="RunManager">
@@ -124,15 +118,16 @@
       <workItem from="1702146671907" duration="5331000" />
       <workItem from="1702207800190" duration="505000" />
       <workItem from="1702464064217" duration="5618000" />
+      <workItem from="1705098106606" duration="18060000" />
+      <workItem from="1705154778494" duration="31705000" />
+      <workItem from="1705252092124" duration="24044000" />
+      <workItem from="1705299918662" duration="128000" />
+      <workItem from="1705303766815" duration="1169000" />
+      <workItem from="1705307261509" duration="702000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/Ristify-Frontend/src/pages/LogIn/LogIn.jsx" />
-      </list>
-    </option>
   </component>
 </project>
