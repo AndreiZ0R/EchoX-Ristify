@@ -9,7 +9,7 @@ import {
     Image,
     Link,
     Box
-} from "@chakra-ui/react";
+} from "@chakra-ui/react";``
 import CustomInput from "../../components/CustomInput/CustomInput.tsx";
 import {useLogin} from "../../hooks/CustomHooks.ts";
 
@@ -19,8 +19,8 @@ const Login = () => {
         password: false,
     });
     const navigate = useNavigate();
-
     const login = useLogin();
+
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -48,7 +48,6 @@ const Login = () => {
                 h="75%"
                 w="75%"
                 bg="background.darker"
-                align="center"
                 boxShadow="0 0 25px 15px rgba(0, 0, 0, 0.35)"
                 rounded="3xl"
                 direction={{base: "column", md: "row"}}
@@ -77,15 +76,15 @@ const Login = () => {
                     align="center"
                     justify="center"
                     direction="column"
-                    p={4}
                     rounded="3xl"
+                    pl={180}
                 >
                     <VStack spacing={4} align="center" w="100%">
                         <Heading
                             as="h2"
                             size="4xl"
                             textColor="background.light"
-                            pt={30}
+                            pt={20}
                             sx={{
                                 userSelect: 'none',
                                 pointerEvents: 'none',
@@ -94,7 +93,7 @@ const Login = () => {
                         >
                             Welcome back
                         </Heading>
-                        <Heading as="h3" size="lg" textColor="primary.base" pb={10} pl={50}>
+                        <Heading as="h3" size="lg" textColor="primary.base" pb={10} >
                             <span
                                 style={{
                                     userSelect: 'none',
@@ -102,7 +101,7 @@ const Login = () => {
                                     textDecoration: 'none'
                                 }}
                             >
-                                Doesn't have an account?{' '}
+                                Don't have an account?{' '}
                             </span>
                             <Link
                                 color="primary.lighter"
@@ -113,9 +112,10 @@ const Login = () => {
                             </Link>
                         </Heading>
                         <Flex
-                            w={{base: "auto", md: "80%"}}
+                            w={{base: "auto", md: "120%"}}
                             h="80%"
                             direction="column"
+                            mt={20}
                         >
                             <form onSubmit={formik.handleSubmit}>
                                 <CustomInput

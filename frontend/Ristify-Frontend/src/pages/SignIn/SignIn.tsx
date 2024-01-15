@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useFormik} from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 import {
     Button,
@@ -9,12 +10,16 @@ import {
     Image,
     Link,
     Box,
-    IconButton
+    IconButton,
+    Radio,
+    RadioGroup,
+    Stack
 } from "@chakra-ui/react";
 import CustomInput from "../../components/CustomInput/CustomInput.tsx";
 import CustomDatePicker from "../../components/CustomDatePicker/CustomDatePicker.tsx";
 import CountrySelect from "../../components/CountrySelect/CountrySelect";
-import { BiChevronRightCircle, BiChevronLeftCircle } from "react-icons/bi";
+import {BiChevronRightCircle, BiChevronLeftCircle} from "react-icons/bi";
+import {useRegister} from "../../hooks/CustomHooks.ts";
 
 const SignIn = () => {
     const [step, setStep] = useState(1);
@@ -33,6 +38,8 @@ const SignIn = () => {
     const [isUsernameValid, setIsUsernameValid] = useState(false);
     const [isEmailValid, setIsEmailValid] = useState(false);
     const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const navigate = useNavigate();
+    const register = useRegister();
 
     const formik = useFormik({
         initialValues: {
@@ -42,10 +49,9 @@ const SignIn = () => {
             email: '',
             country: '',
             birthDate: '',
-            createdAt: new Date().toISOString().split('T')[0],
+            createdAt: new Date().toString().split('T')[0],
             role: "User",
             password: '',
-            rememberMe: false
         },
         validationSchema: Yup.object({
             username: Yup.string().required('Username is required'),
@@ -55,11 +61,27 @@ const SignIn = () => {
             country: Yup.string().required('Country is required'),
             birthDate: Yup.date().required('Birth date is required'),
             password: Yup.string().required('Password is required'),
+            role: Yup.string().required('Role is required'),
         }),
         onSubmit: (values) => {
-            // TODO HANDLE SIGNIN
-            alert(JSON.stringify(values, null, 2));
+            const registerValues = {
+                username: values.username,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                country: values.country,
+                birthDate: new Date(values.birthDate),
+                createdAt: new Date(values.createdAt),
+                role: values.role,
+                password: values.password,
+            }
+            register.mutate(registerValues, {
+                onSuccess: () => {
+                    navigate("/home")
+                }
+            });
         }
+
     });
 
     const goToNextStep = () => setStep(step + 1);
@@ -238,6 +260,23 @@ const SignIn = () => {
                                                 fontFamily="fonts.body"
                                             />
                                         </Flex>
+                                        <RadioGroup
+                                            name="role"
+                                            onChange={value => formik.setFieldValue('role', value)}
+                                            value={formik.values.role}
+                                            mb={20}
+                                            mt={15}
+                                        >
+                                            <Stack direction="row">
+                                                <Radio value="User" size="lg" colorScheme="primary.base">
+                                                    <span style={{ color: '#845ec2', fontSize: '18px' }}>User</span>
+                                                </Radio>
+                                                <Radio value="UserRole" size="lg" colorScheme="primary.base">
+                                                    <span style={{ color: '#845ec2', fontSize: '18px' }}>UserRole</span>
+                                                </Radio>
+                                            </Stack>
+                                        </RadioGroup>
+
                                     </>
                                 )}
                                 {step === 2 && (
@@ -344,7 +383,7 @@ const SignIn = () => {
                                             aria-label={isLastStep ? "Sign In" : "Next"}
                                             bgColor="primary.base"
                                             color="white"
-                                            _hover={{ backgroundColor: "primary.lighter" }}
+                                            _hover={{backgroundColor: "primary.lighter"}}
                                             width="full"
                                             type="submit"
                                             mt={30}
@@ -362,7 +401,7 @@ const SignIn = () => {
                                         <Button
                                             bgColor="primary.base"
                                             color="white"
-                                            _hover={{ backgroundColor: "primary.lighter" }}
+                                            _hover={{backgroundColor: "primary.lighter"}}
                                             width="full"
                                             type="submit"
                                             size="lg"
@@ -378,7 +417,7 @@ const SignIn = () => {
                                         <IconButton
                                             bgColor="primary.base"
                                             color="white"
-                                            _hover={{ backgroundColor: "primary.lighter" }}
+                                            _hover={{backgroundColor: "primary.lighter"}}
                                             width="full"
                                             type="submit"
                                             size="lg"
