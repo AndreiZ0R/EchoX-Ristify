@@ -2,15 +2,13 @@ import {QueryClient, QueryFunction, useMutation, useQuery, useQueryClient, UseQu
 import {Queries} from "../constants/constants.ts";
 import {AppResponse, Model, SingleResponse} from "../models/Response.ts";
 import {LoginModel} from "../models/User.ts";
-import {login} from "../api/Api.ts";
+import {login, register} from "../api/Api.ts";
 import {useEffect, useRef, useState} from "react";
 import {MediaController, Song} from "../models/Playlist.ts";
 
 import ferrariSong from "../assets/ferrari.mp3"
 import humbleSong from "../assets/humble.mp3"
 import horseSong from "../assets/darkHorse.mp3"
-import {login, register} from "../api/Api.ts";
-import {useState} from "react";
 
 type LoginUser = {
     username: string,
@@ -72,7 +70,8 @@ const useRegister = () => {
             email, password, role, firstName, lastName, country, birthDate, createdAt),
         onSuccess: (data: SingleResponse) => {
             const token: string = (data.payload as LoginModel).token;
-            localStorage.setItem(Queries.TOKEN, token);        }
+            localStorage.setItem(Queries.TOKEN, token);
+        }
     })
 }
 

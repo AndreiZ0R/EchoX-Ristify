@@ -6,13 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/api/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/components/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/constants/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/constants/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/components/CustomInput/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/components/CustomInput/CustomInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/components/Footer/CustomFooter.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/hooks/CustomHooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/hooks/CustomHooks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/models/Playlist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/models/Playlist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/LogIn/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/LogIn/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/SignIn/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/SignIn/SignIn.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,28 +48,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "FE-homepage",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "21.3.0",
-    "javascript.nodejs.core.library.typings.version": "20.10.3",
-    "last_opened_file_path": "D:/Facultate/An 3/Sem_1/Inginerie Software (IS)/Proiect/EchoX-Ristify/frontend/Ristify-Frontend/src/assets",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "D:/Development/Programs/nvm/v21.3.0/node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;FE-homepage&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;21.3.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Facultate/An 3/Sem_1/Inginerie Software (IS)/Proiect/EchoX-Ristify/frontend/Ristify-Frontend/src/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;D:/Development/Programs/nvm/v21.3.0/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactBuddySettings">
     <option name="extensionsIgnore" value="true" />
   </component>
@@ -127,7 +130,7 @@
       <workItem from="1702464064217" duration="5618000" />
       <workItem from="1705098106606" duration="18060000" />
       <workItem from="1705154778494" duration="31705000" />
-      <workItem from="1705252092124" duration="19062000" />
+      <workItem from="1705252092124" duration="24044000" />
     </task>
     <servers />
   </component>

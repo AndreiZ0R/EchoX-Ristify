@@ -45,9 +45,8 @@ const register = (username: string, email: string, password: string, role: strin
         createdAt: createdAt,
     }).then((res: AxiosResponse<SingleResponse>): SingleResponse => res.data);
 
-export {retrieveUsers, login, register}
 const retrieveUsers = (): Promise<ListResponse> => retrieveFunction<ListResponse>(usersEndpoint);
 const retrievePlaylists = (): Promise<ListResponse> => retrieveFunction<ListResponse>(playlistsEndpoint);
 const retrievePlaylistsWithSongs = (): Promise<ListResponse> => retrieveFunction<ListResponse>(playlistSongsEndpoint);
 
-export {retrieveUsers, retrievePlaylists, retrievePlaylistsWithSongs, login}
+export {retrieveUsers, retrievePlaylists, retrievePlaylistsWithSongs, login, register}

@@ -14,7 +14,7 @@ type FooterProps = {
     onBack: () => void,
     onSkip: () => void,
 }
-const Footer = ({mediaController, onBack, onSkip}: FooterProps) => {
+export default function CustomFooter({mediaController, onBack, onSkip}: FooterProps)  {
     const [shuffle, setShuffle] = useState<boolean>(false);
     const [loop, setLoop] = useState<boolean>(false);
 
@@ -96,6 +96,4 @@ const Footer = ({mediaController, onBack, onSkip}: FooterProps) => {
             </Hide>
         </Flex>
     );
-};
-
-export default Footer;
+}

@@ -23,5 +23,6 @@ export interface Friendship extends Model {
 }
 
 export interface LoginModel extends User {
-    token: string
+    token: string,
+    user: User
 }

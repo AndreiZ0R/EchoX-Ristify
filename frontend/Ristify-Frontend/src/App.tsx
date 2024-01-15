@@ -1,9 +1,10 @@
 import './styles/variables.scss'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import React, {lazy, Suspense} from "react";
+
 const HomePage = lazy(() => import("./pages/Home/HomePage.tsx"))
 const SignIn = lazy(() => import("./pages/SignIn/SignIn.tsx"))
-const Login = lazy(() => import("./pages/Login/Login.tsx"))
+const Login = lazy(() => import("./pages/LogIn/Login.tsx"))
 const NotFoundPage = lazy(() => import("./pages/NotFound/NotFoundPage.tsx"))
 
 function App() {

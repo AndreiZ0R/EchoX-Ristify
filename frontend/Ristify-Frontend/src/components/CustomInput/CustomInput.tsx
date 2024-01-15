@@ -55,7 +55,7 @@ const CustomInput = React.forwardRef<HTMLInputElement, EmailInputProps>(
                 <FormLabel
                     border="none"
                     color="primary.lighter"
-                    fontSize="2xl"
+                    fontSize="xl"
                     sx={{
                         userSelect: 'none',
                         pointerEvents: 'none',

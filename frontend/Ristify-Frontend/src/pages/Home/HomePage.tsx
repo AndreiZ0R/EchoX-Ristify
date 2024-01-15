@@ -1,5 +1,4 @@
 import "./HomePage.scss"
-import Footer from "../../components/Footer/Footer.tsx";
 import {Box, Button, Flex, Hide, Image, Input, InputGroup, InputLeftElement, Show, Spinner, Text} from "@chakra-ui/react";
 import {useCustomQuery, useLogin, useMediaController} from "../../hooks/CustomHooks.ts";
 import React, {ReactElement, useEffect, useState} from "react";
@@ -13,6 +12,9 @@ import AppIconButton from "../../components/AppIconButton.tsx";
 import {LuPlus} from "react-icons/lu";
 import {SearchIcon} from "@chakra-ui/icons";
 import {RiPlayCircleFill} from "react-icons/ri";
+import CustomFooter from "../../components/Footer/CustomFooter.tsx";
+import {LoginModel, User} from "../../models/User.ts";
+import {useLocation} from "react-router-dom";
 
 enum PanelType { HOME, PROFILE, LIBRARY}
 
@@ -29,12 +31,22 @@ interface Filter {
 
 //TODO: fetch playlists & songs & populate
 
+
+
 export default function HomePage() {
     const {mediaController, onBack, onSkip} = useMediaController();
     const [panels, setPanels] = useState<PanelsState>({
         activePanel: PanelType.HOME,
         leftPanelExpanded: false
     });
+    const [user, setUser] = useState<User>();
+
+
+    const {state} = useLocation();
+
+    useEffect(() => {
+        setUser(state.user);
+    }, [state]);
 
     const filters: Filter[] = [
         {
@@ -63,7 +75,6 @@ export default function HomePage() {
         useCustomQuery<Playlist[]>(Queries.PLAYLISTS_WITH_SONGS, retrievePlaylists, false);
 
     const [shuffledPlaylists, setShuffledPlaylists] = useState<Playlist[]>([]);
-
 
     useEffect(() => {
         const data = {username: "popaopa", password: "popaopa"};
@@ -117,7 +128,9 @@ export default function HomePage() {
 
             {/* welcome text */}
             <Box mt={4} mb={4}>
-                <Text color="background.light" fontSize="3rem" fontWeight="bold">Hello, <Text color="primary.base" display="inline">Andrei</Text></Text>
+                <Text color="background.light" fontSize="3rem" fontWeight="bold">Hello,
+                     <Text color="primary.base" display="inline">{user?.username}</Text>
+                </Text>
                 <Text color="gray">Welcome back.</Text>
             </Box>
 
@@ -264,7 +277,7 @@ export default function HomePage() {
                 </Box>
             </Flex>
             {/* play navigation */}
-            <Footer mediaController={mediaController} onBack={onBack} onSkip={onSkip}/>
+            <CustomFooter mediaController={mediaController} onBack={onBack} onSkip={onSkip}/>
         </Box>
     </>)
 }
@@ -390,7 +403,6 @@ type PlaylistSectionProps = {
     playlists?: Playlist[]
 }
 
-// TODO: truncate if more than 5 and show "Show More"
 function PlaylistSection({label, playlists}: PlaylistSectionProps) {
     return (<>
         <Box mt={10} mb={4} cursor="pointer">
