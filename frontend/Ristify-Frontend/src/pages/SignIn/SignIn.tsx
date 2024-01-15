@@ -270,7 +270,7 @@ const SignIn = () => {
                                                     <span style={{color: '#845ec2', fontSize: '18px'}}>User</span>
                                                 </Radio>
                                                 <Radio value="UserRole" size="md" colorScheme="primary.base">
-                                                    <span style={{color: '#845ec2', fontSize: '18px'}}>UserRole</span>
+                                                    <span style={{color: '#845ec2', fontSize: '18px'}}>Artist</span>
                                                 </Radio>
                                             </Stack>
                                         </RadioGroup>
