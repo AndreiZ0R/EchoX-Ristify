@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="" />
+    <list default="true" id="f7f26e28-de88-45bb-96ae-3d234cac0dda" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/models/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/pages/Home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Ristify-Frontend/src/theme/theme.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -42,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "FE-init-setup",
+    "git-widget-placeholder": "FE-Sign-In-And-Sign__Up-Page",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "21.3.0",
     "javascript.nodejs.core.library.typings.version": "20.10.3",
@@ -54,7 +68,7 @@
     "nodejs_interpreter_path": "D:/Development/Programs/nvm/v21.3.0/node",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\Facultate\\An 3\\Sem_1\\Inginerie Software (IS)\\Proiect\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\bilde\\OneDrive\\Desktop\\Stuffs\\Anul3\\IS\\EchoX-Ristify\\EchoX-Ristify\\frontend\\Ristify-Frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -115,5 +129,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Ristify-Frontend/src/pages/LogIn/LogIn.jsx" />
+      </list>
+    </option>
   </component>
 </project>

@@ -25,4 +25,18 @@ const login = (username: string, password: string): Promise<SingleResponse> =>
         password: password
     }).then((res: AxiosResponse<SingleResponse>): SingleResponse => res.data);
 
-export {retrieveUsers, login}
+const register = (username: string, email: string, password: string, role: string, firstName: string,
+                  lastName: string, country: string, birthDate: Date, createdAt: Date): Promise<SingleResponse> =>
+    axios.post(`${authEndpoint}/register`, {
+        username: username,
+        email: email,
+        password: password,
+        role: role,
+        firstName: firstName,
+        lastName: lastName,
+        country: country,
+        birthDate: birthDate,
+        createdAt: createdAt,
+    }).then((res: AxiosResponse<SingleResponse>): SingleResponse => res.data);
+
+export {retrieveUsers, login, register}

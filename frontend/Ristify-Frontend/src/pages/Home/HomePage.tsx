@@ -1,6 +1,5 @@
 import {User} from "../../models/User.ts";
 import {CSSProperties} from "react";
-import styles from "./HomePage.module.scss"
 import {useCustomQuery, useLogin} from "../../hooks/CustomHooks.ts";
 import {Queries} from "../../constants/constants.ts";
 import {retrieveUsers} from "../../api/Api.ts";
@@ -17,7 +16,7 @@ export default function HomePage() {
 
     return (
         <>
-            <div className={styles.special}>HomePage</div>
+            <div>HomePage</div>
             <Button bgColor="primary.base" _hover={{backgroundColor: "primary.lighter"}} onClick={() => {
                 const data = {username: "popaopa", password: "popaopa"};
                 mutation.mutate(data, {
@@ -59,7 +58,7 @@ function UserCard({user}: UserProps) {
     return (
         <>
             <div style={inlineStyle}>
-                <span className={styles.userText}>{user.username}</span>
+                <span>{user.username}</span>
                 <span>{user.email}</span>
             </div>
         </>
